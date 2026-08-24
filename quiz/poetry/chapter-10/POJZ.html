@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Grandmother's House | Quiz | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • Poetry • Chapter 10</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>My Grandmother's House</h2>
+<p>Class 12th English Poetry • Bihar Board • Kamala Das | <b>25 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 1 of 25</span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+["Who is the poet of 'My Grandmother's House'?",
+["Kamala Das","Keki N. Daruwalla","T. S. Eliot","Walt Whitman"],0],
+["Kamala Das was an Indian poet and short story writer who earned a respectable place in English and:",
+["Malayalam literature","Hindi literature","Bengali literature","Tamil literature"],0],
+["When was Kamala Das born?",
+["1934","1925","1940","1950"],0],
+["In which year was Kamala Das shortlisted for the Nobel Prize for Literature?",
+["1984","1976","1990","1965"],0],
+["Kamala Das's autobiography was published in:",
+["1976","1984","1963","1973"],0],
+["What is the primary theme of Kamala Das's poetry?",
+["Love of a lonely heart and nostalgia","War and peace","Nature's beauty","Political freedom"],0],
+["'My Grandmother's House' is primarily a/an ________ poem.",
+["Autobiographical / Lyric","Epic","Ballad","Sonnet"],0],
+["According to the poem, where did the speaker once receive love?",
+["At her grandmother's house","At her school","From her friends","At her husband's home"],0],
+["Why did the house go into silence after the grandmother's death?",
+["Because the woman who gave love died","Because everyone shifted to a new city","Because it was locked permanently","Because snakes infested it"],0],
+["What grew among the blind eyes of windows in the abandoned house?",
+["Trees / Snakes (coiling snakes)",
+["Flowers","Moss and weeds","Vines of grapes"],0],
+["The speaker says she was then too young to ________ the books.",
+["Read","Write","Buy","Understand"],0],
+["What kind of blood does the poet say she has now, symbolizing her current cold state?",
+["Cold","Hot","Frozen","Fresh"],0],
+["The speaker wants to go back to her grandmother's house to:",
+["Listen to the air / peer through blind eyes of windows",
+["Steal money","Take back her old toys","Clean the house"],0],
+["The phrase 'There is a house now far away where once I received love' belongs to:",
+["My Grandmother's House","Snake","An Epitaph","Song of Myself"],0],
+["Which famous poetry collection was published by Kamala Das in 1963?",
+["Summer in Calcutta","The Old Playhouse","Sirens","The Descendants"],0],
+["The house of the grandmother is described as being:",
+["Far away","Just next door","In the city center","Across the sea"],0],
+["What emotion is most prominently expressed throughout the poem?",
+["Nostalgia and a deep sense of loss","Anger","Happiness","Fear"],0],
+["In the poem, snakes are described as moving among:",
+["Books","Beds","The garden","The roof"],0],
+["The speaker in the poem is:",
+["Kamala Das herself",
+["An imaginary character",
+["A historical queen",
+["A village peasant"],0],
+["The death of which person caused the house to go into silence?",
+["Grandmother",
+["Grandfather",
+["Mother",
+["Father"],0],
+["The poet says she often thinks of going there:",
+["To peer through blind eyes of windows",
+["To sell the house",
+["To meet her cousins",
+["To plant trees"],0],
+["What does the 'house' in the poem signify to the poet?",
+["A symbol of pure love, warmth, and security",
+["A haunted place",
+["A source of income",
+["A place of punishment"],0],
+["What kind of atmosphere surrounds the grandmother's house now?",
+["Desolation and silence",
+["Joy and celebration",
+["Noise and bustle",
+["Religious chanting"],0],
+["The phrase 'blind eyes' of the windows refers to:",
+["Broken or closed windows that cannot see",
+["Painted windows",
+["Windows covered with curtains",
+["Open windows"],0],
+["Kamala Das is well-known for writing candidly about:",
+["Her personal life and complex human emotions",
+["Science and technology",
+["War strategies",
+["Historical dynasties"],0]
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const q=questions[current];
+document.getElementById("counter").textContent=`Question ${current+1} of ${questions.length}`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">${q[0]}</div>`;
+q[1].forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(65+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Keep up the great work.":
+percentage>=60?"Good work! 👍 Revise the chapter once more.":
+"Keep practicing. 📚 Read the chapter and try again.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((q,i)=>{
+const correct=answers[i]===q[2];
+const yourAnswer=answers[i]===null?"Not answered":q[1][answers[i]];
+const timeSpent=questionTimes[i]||0;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${i+1}. ${q[0]}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${q[1][q[2]]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
