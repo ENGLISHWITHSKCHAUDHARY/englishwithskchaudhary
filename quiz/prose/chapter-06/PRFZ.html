@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Artist | Quiz | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.55}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:28px 14px}
+header h1{font-size:clamp(26px,6vw,42px)}
+header p{font-size:16px;margin-top:4px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 10px #0001}
+nav ul{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;list-style:none;padding:10px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:8px 12px;border-radius:8px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:22px 14px}
+.hero,.quiz-card,.result{background:#fff;border-radius:18px;padding:24px;margin-bottom:25px;box-shadow:0 5px 20px #0000000d}
+.hero{text-align:center}.hero h2,.result h2{color:#123c78;margin-bottom:8px}
+.hero p{max-width:800px;margin:auto}
+.progress{height:10px;background:#e5e9f0;border-radius:10px;overflow:hidden;margin:15px 0 20px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:14px;flex-wrap:wrap;gap:8px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:4px 10px;border-radius:6px;font-size:13px}
+.question{font-size:20px;font-weight:700;color:#172033;margin:15px 0}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:10px;padding:12px 13px;margin:9px 0;cursor:pointer}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:9px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:20px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:9px 14px;border-radius:8px;font-weight:700;cursor:pointer}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:44px;font-weight:700;color:#0b8043;margin:12px 0 6px}
+.time-taken{font-size:16px;color:#123c78;font-weight:700;margin-bottom:12px}
+.review{text-align:left;margin-top:20px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:10px;padding:12px;margin:8px 0}
+.review-item.correct{border-left:5px solid #0b8043}
+.review-item.wrong{border-left:5px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:25px 15px}
+@media(max-width:600px){nav a{font-size:13px;padding:6px 8px}.hero,.quiz-card,.result{padding:17px}.question{font-size:18px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • Grammar • Writing Skills • Target 90+</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>The Artist</h2>
+<p>Class 12th English • Bihar Board • Shiga Naoya</p>
+<p><b>Online Quiz — 25 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 1 of 25</span>
+<span class="timer-badge">⏳ Question Time: <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:12px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong></p>
+<p>Bihar Board Class 12th English • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+["Who wrote the short story 'The Artist'?",
+["Shiga Naoya","H. E. Bates","Anton Chekhov","Pearl S. Buck"],0],
+["Shiga Naoya is a famous ______ writer.",
+["Japanese","Chinese","Korean","Indian"],0],
+["How old was Seibei in the story 'The Artist'?",
+["10 years old","12 years old","14 years old","15 years old"],1],
+["Seibei was a student of which school?",
+["High School","Primary School","Middle School","College"],1],
+["What was Seibei's main hobby or passion?",
+["Collecting gourds","Painting pictures","Playing cricket","Catching fish"],0],
+["Seibei lived in a ______ town.",
+["Harbor","Mountain","Desert","Capital"],0],
+["How much did Seibei pay for the five-inch gourd he bought from the old woman?",
+["5 sen","10 sen","15 sen","50 sen"],1],
+["What did Seibei insert into the top of the gourd after polishing it?",
+["Tea leaves","Coffee beans","Salt","Vinegar"],0],
+["Seibei's father worked at a:",
+["Carpenter's shop","Grocery store","Blacksmith's shop","School"],0],
+["Who caught Seibei polishing a gourd under his desk in class?",
+["The ethics teacher","The math teacher","The science teacher","The principal"],0],
+["The ethics teacher considered Seibei's hobby as:",
+["Effeminate","Brilliant","Useful","Educational"],0],
+["What did the teacher do with Seibei's gourd?",
+["Confiscated it and gave it to a porter","Threw it in the dustbin","Gave it back to his mother","Sold it to a dealer"],0],
+["What did Seibei's father do when he learned about the incident from the teacher?",
+["Smashed all of Seibei's gourds with a hammer","Gave him money","Bought him a new gourd","Sent him to another city"],0],
+["The porter sold the confiscated gourd to a curio-dealer for how many yen?",
+["50 yen","100 yen","500 yen","10 yen"],0],
+["The curio-dealer eventually sold Seibei's gourd to a wealthy collector for how many yen?",
+["600 yen","500 yen","1000 yen","50 yen"],0],
+["After his gourds were destroyed, what new passion did Seibei turn to?",
+["Painting pictures","Singing songs","Writing stories","Reading books"],0],
+["How did Seibei's father treat his new passion for painting?",
+["Scolded and discouraged him","Supported him fully","Bought him paints","Proudly displayed his art"],0],
+["Seibei was particularly fascinated by gourds that were:",
+["Symmetrical and even","Crooked and odd","Very large","Brightly colored"],0],
+["Seibei used to pour what kind of liquid into the gourds to remove the smell?",
+["Sake (Japanese rice wine)","Milk","Water","Oil"],0],
+["Which type of gourds did Seibei's father and his friends prefer?",
+["Old and clumsy ones","Symmetrical ones","Tiny ones","Green ones"],0],
+["Where did Seibei store his collection of polished gourds?",
+["Hanging on the walls of his room","Under his bed","In a wooden box","In the kitchen"],0],
+["What was Seibei doing when the ethics teacher walked by in class?",
+["Polishing a gourd with tea leaves","Drawing a picture","Sleeping","Reading a comic"],0],
+["Who visited Seibei's home to complain about his behavior?",
+["The ethics teacher","The school principal","The curio dealer","The old woman"],0],
+["What was the expression on Seibei's face when his father smashed his gourds?",
+["Silent tears without a word","Angry screaming","Laughing","Pleading for mercy"],0],
+["The story 'The Artist' highlights how adult authority can suppress a child's:",
+["Talent and creativity","Physical strength","Academic grades","Friendships"],0]
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const q=questions[current];
+document.getElementById("counter").textContent=`Question ${current+1} of ${questions.length}`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">${q[0]}</div>`;
+q[1].forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(65+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Keep up the great work.":
+percentage>=60?"Good work! 👍 Revise the chapter once more.":
+"Keep practicing. 📚 Read the chapter and try again.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((q,i)=>{
+const correct=answers[i]===q[2];
+const yourAnswer=answers[i]===null?"Not answered":q[1][answers[i]];
+const timeSpent=questionTimes[i]||0;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${i+1}. ${q[0]}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${q[1][q[2]]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
