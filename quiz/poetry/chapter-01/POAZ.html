@@ -6,48 +6,49 @@
 <title>Sweetest Love I Do Not Goe | Quiz | English with S.K. Chaudhary</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.55}
-header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:28px 14px}
-header h1{font-size:clamp(26px,6vw,42px)}
-header p{font-size:16px;margin-top:4px}
-nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 10px #0001}
-nav ul{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;list-style:none;padding:10px}
-nav a{text-decoration:none;color:#123c78;font-weight:700;padding:8px 12px;border-radius:8px}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
 nav a:hover{background:#e8f1ff}
-.container{max-width:850px;margin:auto;padding:22px 14px}
-.hero,.quiz-card,.result{background:#fff;border-radius:18px;padding:24px;margin-bottom:25px;box-shadow:0 5px 20px #0000000d}
-.hero{text-align:center}.hero h2,.result h2{color:#123c78;margin-bottom:8px}
-.hero p{max-width:800px;margin:auto}
-.progress{height:10px;background:#e5e9f0;border-radius:10px;overflow:hidden;margin:15px 0 20px}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
 .progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
-.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:14px;flex-wrap:wrap;gap:8px}
-.timer-badge{background:#e8f1ff;color:#1769aa;padding:4px 10px;border-radius:6px;font-size:13px}
-.question{font-size:20px;font-weight:700;color:#172033;margin:15px 0}
-.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:10px;padding:12px 13px;margin:9px 0;cursor:pointer}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
 .option:hover{background:#e8f1ff;border-color:#1769aa}
-.option input{margin-right:9px}
-.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:20px}
-.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:9px 14px;border-radius:8px;font-weight:700;cursor:pointer}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
 .btn.secondary{background:#123c78}
 .btn.green{background:#0b8043}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 #submitBtn{display:none}
 .result{text-align:center;display:none}
-.score{font-size:44px;font-weight:700;color:#0b8043;margin:12px 0 6px}
-.time-taken{font-size:16px;color:#123c78;font-weight:700;margin-bottom:12px}
-.review{text-align:left;margin-top:20px}
-.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:10px;padding:12px;margin:8px 0}
-.review-item.correct{border-left:5px solid #0b8043}
-.review-item.wrong{border-left:5px solid #d93025}
-footer{background:#123c78;color:#fff;text-align:center;padding:25px 15px}
-@media(max-width:600px){nav a{font-size:13px;padding:6px 8px}.hero,.quiz-card,.result{padding:17px}.question{font-size:18px}}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
 </style>
 </head>
 <body>
 
 <header>
 <h1>English with S.K. Chaudhary</h1>
-<p>Bihar Board Class 12th English • Grammar • Writing Skills • Target 90+</p>
+<p>Bihar Board Class 12th English • Grammar • Writing Skills</p>
 </header>
 
 <nav>
@@ -64,14 +65,13 @@ footer{background:#123c78;color:#fff;text-align:center;padding:25px 15px}
 
 <section class="hero">
 <h2>Sweetest Love I Do Not Goe</h2>
-<p>Class 12th English Poetry • Bihar Board • John Donne</p>
-<p><b>Online Quiz — 25 Questions</b></p>
+<p>Class 12th English Poetry • Bihar Board • John Donne | <b>25 Questions</b></p>
 </section>
 
 <section class="quiz-card" id="quizBox">
 <div class="quiz-top">
 <span id="counter">Question 1 of 25</span>
-<span class="timer-badge">⏳ Question Time: <span id="qTimer">0s</span></span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
 <span id="answered">Answered: 0</span>
 </div>
 
@@ -91,15 +91,14 @@ footer{background:#123c78;color:#fff;text-align:center;padding:25px 15px}
 <div class="score" id="score"></div>
 <div class="time-taken" id="totalTime"></div>
 <p id="message"></p>
-<button class="btn" onclick="restartQuiz()" style="margin-top:12px">Try Again</button>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
 <div class="review" id="review"></div>
 </section>
 
 </main>
 
 <footer>
-<p><strong>English with S.K. Chaudhary</strong></p>
-<p>Bihar Board Class 12th English • Target 90+</p>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
 <p>© 2026 English with S.K. Chaudhary</p>
 </footer>
 
