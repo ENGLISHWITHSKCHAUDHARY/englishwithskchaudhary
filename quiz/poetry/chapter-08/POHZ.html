@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fire-Hymn | Quiz | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • Grammar • Writing Skills</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>Fire-Hymn</h2>
+<p>Class 12th English Poetry • Bihar Board • Keki N. Daruwalla | <b>25 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 1 of 25</span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+["Who composed the poem 'Fire-Hymn'?",
+["Keki N. Daruwalla","T. S. Eliot","Rupert Brooke","Walt Whitman"],0],
+["Keki N. Daruwalla is an Indo-Anglian poet and recipient of Sahitya Akademi Award in which year?",
+["1984","1980","1990","1975"],0],
+["To which religious community does Keki N. Daruwalla belong?",
+["Zoroastrian (Parsi)","Hindu","Christian","Muslim"],0],
+["What place for disposing dead bodies is mentioned in Zoroastrian religion?",
+["Tower of Silence","Crematorium","Graveyard","Churchyard"],0],
+["Why did the poet consign his first-born child to the flames?",
+["Because the Tower of Silence was a thousand miles away","Because he changed his religion","Because of lack of money","Because of a law"],0],
+["The burning ghat erupted phosphorescence and showed red-hot embers at:",
+["Night / Midnight","Dawn","Noon","Sunset"],0],
+["What does the poet mean when he says the fire 'forgets its dead'?",
+["Fire leaves half-burnt limbs behind","Fire burns everything to ashes","Fire extinguishes quickly","Fire goes out"],0],
+["The poet took an oath to save fire from the sin of:",
+["Forgiving / Forgetfulness","Burning","Spreading","Extinguishing"],0],
+["How many years ago did the poet consign his first-born to the fire?",
+["Twenty years ago","Ten years ago","Fifteen years ago","Five years ago"],0],
+["What profession did Keki N. Daruwalla pursue along with writing poetry?",
+["IPS Officer (Police Service)","Doctor","Teacher","Lawyer"],0],
+["The phrase 'half-cooked limbs' refers to dead bodies left partially unburnt by:",
+["Fire","Water","Animals","Wind"],0],
+["The poet was walking along the river bank (burning ghat) with his:",
+["Father","Wife","Son","Brother"],0],
+["What color are the embers described as in 'Fire-Hymn'?",
+["Red-hot / Red","Yellow","Blue","Black"],0],
+["'Fire-Hymn' deals with the poet's experience at a:",
+["Burning Ghat / Cremation ground","Church","Temple","Park"],0],
+["According to Parsi tradition, dead bodies are exposed on the Tower of Silence to be eaten by:",
+["Vultures / Birds","Dogs","Insects","Fish"],0],
+["The poet felt that consigning his child to fire was a act of:",
+["Religious transgression / Sin against his faith","Pride","Joy","Wisdom"],0],
+["The line 'I swore this time to save it from the sin of forgiving' is taken from:",
+["Fire-Hymn","The Soldier","An Epitaph","Snake"],0],
+["What sang 'Fire-Hymn' or gave a decree forgiving the poet at the end?",
+["The Fire / The Fire Voice","His Father","The Priest","The River"],0],
+["Keki N. Daruwalla received the Commonwealth Poetry Prize in:",
+["1987","1984","1992","1980"],0],
+["What was the main reason for the poet's agony near the burning ghat?",
+["Seeing half-burnt human body parts","The cold wind","Darkness of night","Fear of ghosts"],0],
+["The poem 'Fire-Hymn' highlights the conflict between human emotions and religious:",
+["Rituals and traditions","Laws","Books","Festivals"],0],
+["The word 'desecration' in the poem refers to the disrespectful treatment of:",
+["Dead bodies by leaving them half-burnt","Temples","Nature","Fire"],0],
+["What came to the speaker's mind when seeing the red-hot embers?",
+["The cruelty and forgetfulness of fire","The warmth of summer","Cooking food","Lighting lamps"],0],
+["Keki N. Daruwalla's poetry is known for its imagery of nature, violence, and:",
+["Realism","Romance","Fantasy","Mythology"],0],
+["In 'Fire-Hymn', fire is personified as a entity that can:",
+["Sin and forgive","Speak and walk","Fly and sing","Eat and drink"],0]
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const q=questions[current];
+document.getElementById("counter").textContent=`Question ${current+1} of ${questions.length}`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">${q[0]}</div>`;
+q[1].forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(65+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Keep up the great work.":
+percentage>=60?"Good work! 👍 Revise the chapter once more.":
+"Keep practicing. 📚 Read the chapter and try again.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((q,i)=>{
+const correct=answers[i]===q[2];
+const yourAnswer=answers[i]===null?"Not answered":q[1][answers[i]];
+const timeSpent=questionTimes[i]||0;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${i+1}. ${q[0]}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${q[1][q[2]]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
