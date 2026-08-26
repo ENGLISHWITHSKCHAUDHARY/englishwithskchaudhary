@@ -1,0 +1,318 @@
+html_content = """<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bihar Board Class 12 English Grammar - Time and Tense</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm 20mm 15mm;
+            background-color: #f7f9fc;
+            @bottom-right {
+                content: "Page " counter(page) " of " counter(pages);
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 9pt;
+                color: #555555;
+            }
+            @bottom-left {
+                content: "Bihar Board Class 12th English Grammar - Chapter 1";
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 9pt;
+                color: #555555;
+            }
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            font-size: 11pt;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1b365d, #2980b9);
+            color: #ffffff;
+            margin: -20mm -15mm 20mm -15mm;
+            padding: 25px 15mm 20mm 15mm;
+            text-align: center;
+            border-bottom: 4px solid #e74c3c;
+        }
+
+        .header h1 {
+            margin: 0 0 8px 0;
+            font-size: 22pt;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            margin: 0;
+            font-size: 12pt;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        h2 {
+            color: #1b365d;
+            font-size: 14pt;
+            border-left: 4px solid #2980b9;
+            padding-left: 10px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 12pt;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin: 0 0 10px 0;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 0 0 15px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #d1d8e0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            page-break-inside: avoid;
+        }
+
+        .highlight-box {
+            background-color: #eef2f7;
+            border-left: 4px solid #1b365d;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+            page-break-inside: avoid;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+            page-break-inside: avoid;
+            background-color: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #d1d8e0;
+        }
+
+        th, td {
+            padding: 9px 10px;
+            border-bottom: 1px solid #e1e8ed;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1b365d;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .example {
+            background-color: #f1f8e9;
+            border-left: 4px solid #7cb342;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+            font-size: 10.5pt;
+            page-break-inside: avoid;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 30px;
+            font-size: 10pt;
+            page-break-inside: avoid;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>BIHAR BOARD CLASS 12TH ENGLISH GRAMMAR</h1>
+        <p class="subtitle">Chapter 1: Time and Tense — Complete Comprehensive Guide</p>
+    </div>
+
+    <h2>1. Basic Definition & Difference (मूल अंतर)</h2>
+    <div class="card">
+        <p>बिहार बोर्ड परीक्षा के दृष्टिकोण से Tense को समझना बहुत आवश्यक है। Time और Tense में मुख्य अंतर निम्नलिखित हैं:</p>
+        <ul>
+            <li><strong>Time:</strong> यह एक प्राकृतिक (Natural) और सार्वभौमिक (Universal) अवधारणा है जो Past, Present और Future को दर्शाती है। यह व्याकरण के नियमों से बंधा नहीं होता।</li>
+            <li><strong>Tense:</strong> यह एक व्याकरणिक (Grammatical) रूप है जो Verb (क्रिया) के रूप को बदलकर समय को दर्शाता है।</li>
+        </ul>
+    </div>
+
+    <h2>2. Tenses Chart & Forms (मुख्य रूप और पहचान)</h2>
+    <p>प्रत्येक Tense के 4 उप-भाग होते हैं: Indefinite (Simple), Continuous, Perfect, और Perfect Continuous।</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tense / Form</th>
+                <th>Structure (संरचना)</th>
+                <th>प्रमुख पहचान (Keywords / Adverbs)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Simple Present</strong></td>
+                <td>Sub + <span class="math">V<sub>1</sub> / V<sub>5</sub></span> + Obj</td>
+                <td>Always, daily, regularly, generally, usually, universal truth</td>
+            </tr>
+            <tr>
+                <td><strong>Present Cont.</strong></td>
+                <td>Sub + Is/Am/Are + <span class="math">V<sub>4</sub> (-ing)</span></td>
+                <td>At this time, at present, now, look!, listen!, still</td>
+            </tr>
+            <tr>
+                <td><strong>Present Perfect</strong></td>
+                <td>Sub + Has/Have + <span class="math">V<sub>3</sub></span></td>
+                <td>Already, yet, recently, so far, up to now, just, ever</td>
+            </tr>
+            <tr>
+                <td><strong>Present Perf. Cont.</strong></td>
+                <td>Sub + Has/Have been + <span class="math">V<sub>4</sub></span></td>
+                <td>Since / For के साथ समय दिया होता है</td>
+            </tr>
+            <tr>
+                <td><strong>Simple Past</strong></td>
+                <td>Sub + <span class="math">V<sub>2</sub></span> + Obj</td>
+                <td>Yesterday, ago, last night/year, in 2021</td>
+            </tr>
+            <tr>
+                <td><strong>Past Continuous</strong></td>
+                <td>Sub + Was/Were + <span class="math">V<sub>4</sub></span></td>
+                <td>At that time, then, while, when</td>
+            </tr>
+            <tr>
+                <td><strong>Past Perfect</strong></td>
+                <td>Sub + Had + <span class="math">V<sub>3</sub></span></td>
+                <td>Before / After वाले वाक्यों में (दो कार्य)</td>
+            </tr>
+            <tr>
+                <td><strong>Simple Future</strong></td>
+                <td>Sub + Shall/Will + <span class="math">V<sub>1</sub></span></td>
+                <td>Tomorrow, next year/week, coming day</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Most Important Rules for Bihar Board (परीक्षा के नियम)</h2>
+
+    <h3>Rule 1: Universal Truth & Habitual Facts</h3>
+    <div class="card">
+        <p>यदि कोई वाक्य <strong>Universal Truth</strong> (सार्वाभौमिक सत्य), <strong>Scientific Fact</strong> या <strong>Habitual Action</strong> को दर्शाए, तो हमेशा <strong>Simple Present Tense (<span class="math">V<sub>1</sub> / V<sub>5</sub></span>)</strong> का प्रयोग होता है, चाहे Reporting Verb Past Tense में ही क्यों न हो।</p>
+        <div class="example">
+            • <em>Direct:</em> The teacher said, "The earth <strong>moves</strong> (move) round the sun."
+        </div>
+    </div>
+
+    <h3>Rule 2: Adverbs Indicating Simple Present</h3>
+    <div class="card">
+        <p>यदि वाक्य में <strong>Always, daily, usually, generally, often, sometimes, seldom, rarely, every day/week</strong> आदि शब्द हों, तो सामान्यतः Simple Present Tense का प्रयोग होता है।</p>
+        <div class="example">
+            • <em>Example:</em> He <strong>goes</strong> (go) to temple every Monday.
+        </div>
+    </div>
+
+    <h3>Rule 3: Adverbs Indicating Present Continuous</h3>
+    <div class="card">
+        <p>यदि वाक्य में <strong>Now, at present, at this time, still, look!, listen!</strong> आदि शब्द आएं, तो <strong>Present Continuous Tense (Is/Am/Are + <span class="math">V<sub>4</sub></span>)</strong> का प्रयोग होता है।</p>
+        <div class="example">
+            • <em>Example:</em> Look! The baby <strong>is sleeping</strong> (sleep).
+        </div>
+    </div>
+
+    <h3>Rule 4: Action Completed Recently (Present Perfect)</h3>
+    <div class="card">
+        <p>यदि वाक्य में <strong>Already, just, yet, recently, so far</strong> आदि शब्द हों, तो <strong>Present Perfect Tense (Has/Have + <span class="math">V<sub>3</sub></span>)</strong> का प्रयोग होता है।</p>
+        <div class="example">
+            • <em>Example:</em> I <strong>have just finished</strong> (finish) my work.
+        </div>
+    </div>
+
+    <h3>Rule 5: Past Time Indicators (Simple Past)</h3>
+    <div class="card">
+        <p>यदि वाक्य में बीते हुए समय के सूचक शब्द जैसे <strong>Yesterday, ago, last year, last night, once, in 2010</strong> आदि दिए हों, तो हमेशा <strong>Simple Past Tense (<span class="math">V<sub>2</sub></span>)</strong> का प्रयोग होगा।</p>
+        <div class="example">
+            • <em>Example:</em> He <strong>came</strong> (come) here yesterday.
+        </div>
+    </div>
+
+    <h3>Rule 6: Combination of Two Past Actions (Past Perfect & Simple Past)</h3>
+    <div class="card">
+        <p>बिहार बोर्ड में इस नियम से अक्सर प्रश्न आते हैं:</p>
+        <ul>
+            <li><strong>Before</strong> के पहले <span class="math">→</span> <strong>Had + <span class="math">V<sub>3</sub></span></strong> और बाद में <span class="math">→</span> <strong><span class="math">V<sub>2</sub></span></strong><br>
+                <em>Example:</em> The patient <strong>had died</strong> before the doctor <strong>came</strong>.
+            </li>
+            <li><strong>After</strong> के पहले <span class="math">→</span> <strong><span class="math">V<sub>2</sub></span></strong> और बाद में <span class="math">→</span> <strong>Had + <span class="math">V<sub>3</sub></span></strong><br>
+                <em>Example:</em> The patient <strong>died</strong> after the doctor <strong>had come</strong>.
+            </li>
+        </ul>
+    </div>
+
+    <h3>Rule 7: Conditional Sentences & Use of 'Since / For'</h3>
+    <div class="card">
+        <p>• <strong>Conditional:</strong> यदि वाक्य <em>If, unless, until</em> से शुरू हो और मुख्य खंड Simple Future में हो, तो शर्त वाला खंड Simple Present (<span class="math">V<sub>1</sub>/V<sub>5</sub></span>) में होगा।<br>
+        <em>Example:</em> If it <strong>rains</strong> (rain), we will cancel the match.</p>
+        <p>• <strong>Since / For:</strong> निश्चित समय (Point of time) के लिए <strong>Since</strong> और अनिश्चित अवधि (Period of time) के लिए <strong>For</strong> का प्रयोग होता है (Perfect Continuous Tense)।<br>
+        <em>Example:</em> He has been living here <strong>for</strong> five years.</p>
+    </div>
+
+    <div class="footer-note">
+        Bihar Board Class 12th English Grammar — Chapter 1: Time and Tense Complete Notes.
+    </div>
+
+</body>
+</html>
+"""
+
+with open("time_and_tense_chapter1.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+from weasyprint import HTML
+HTML(filename="time_and_tense_chapter1.html").write_pdf("time_and_tense_chapter1.pdf")
