@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transformation of Sentences | Quiz | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • Grammar • Transformation of Sentences</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#story">Story of English</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>Transformation of Sentences</h2>
+<p>Class 12th English Grammar • Bihar Board • Important MCQs | <b>25 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 1 of 25</span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+["Choose the correct negative sentence of: 'He is honest.'",
+["He is not dishonest.", "He is never honest.", "He is not a dishonest man.", "He is dishonest."], 0],
+["Choose the correct affirmative sentence of: 'None but a fool could do this.'",
+["Only a fool could do this.", "Every fool could do this.", "A fool could do this.", "Anyone could do this."], 0],
+["Choose the correct indirect/transformed negative form of: 'As soon as he saw the tiger, he ran away.'",
+["No sooner did he see the tiger than he ran away.", "He saw the tiger and ran away.", "Scarcely he saw the tiger when he ran.", "Hardly he ran away seeing the tiger."], 0],
+["Choose the correct interrogative sentence of: 'Everyone knows him.'",
+["Who does not know him?", "Does everyone know him?", "Who knows him?", "Is he known by everyone?"], 0],
+["Choose the correct assertive sentence of: 'Is there any use crying over spilt milk?'",
+["There is no use crying over spilt milk.", "It is useful to cry over spilt milk.", "Crying over spilt milk is good.", "There is some use crying over spilt milk."], 0],
+["Choose the correct negative form of: 'He is too weak to walk.'",
+["He is so weak that he cannot walk.", "He is very weak and cannot walk.", "He is weak so he cannot walk.", "He is not strong enough to walk."], 0],
+["Choose the correct affirmative sentence of: 'He never tells a lie.'",
+["He always tells the truth.", "He sometimes tells a lie.", "He tells a lie occasionally.", "He avoids telling a lie."], 0],
+["Choose the correct exclamatory sentence of: 'It is a very beautiful scene.'",
+["What a beautiful scene it is!", "How beauty the scene is!", "It is an extremely beautiful scene!", "What a scene it is beautiful!"], 0],
+["Choose the correct assertive sentence of: 'What a piece of work is man!'",
+["Man is a wonderful piece of work.", "Man is not a good piece of work.", "Man is a piece of work.", "How wonderful man is!"], 0],
+["Choose the correct negative sentence of: 'I saw him only once.'",
+["I never saw him more than once.", "I did not see him except once.", "I saw him not more than once.", "I only saw him once."], 0],
+["Choose the correct passive-transformed option or negative of: 'Only graduates can apply for this post.'",
+["None but graduates can apply for this post.", "Only non-graduates cannot apply.", "Graduates cannot apply for this post.", "No graduate can apply."], 0],
+["Choose the correct affirmative sentence of: 'He is not as tall as his brother.'",
+["His brother is taller than he.", "He is shorter than his brother.", "His brother is more tall than he.", "Both A and B are correct."], 3],
+["Choose the correct comparative degree of: 'Iron is the most useful metal.'",
+["Iron is more useful than any other metal.", "Iron is more useful than most other metals.", "Iron is useful than other metals.", "No other metal is as useful as iron."], 0],
+["Choose the correct positive degree of: 'No other boy in the class is as smart as Sohan.'",
+["Sohan is smarter than any other boy in the class.", "Sohan is the smartest boy in the class.", "Sohan is smart.", "Sohan is smarter than most other boys."], 1],
+["Choose the correct negative form of: 'Always speak the truth.'",
+["Never tell a lie.", "Do not speak a lie.", "You should never speak a lie.", "Do not always speak a lie."], 0],
+["Choose the correct interrogative form of: 'Where there is smoke, there is fire.'",
+["Is there smoke without fire?", "Where there is fire, is there smoke?", "Can there be smoke without fire?", "Both A and C are correct."], 3],
+["Choose the correct assertive form of: 'Who can touch pitch and not be defiled?'",
+["Everyone can touch pitch and not be defiled.", "No one can touch pitch without being defiled.", "Pitch can be touched by anyone.", "None can touch pitch."], 1],
+["Choose the correct negative of: 'He is wiser than his brother.'",
+["He is not as wise as his brother.", "His brother is not as wise as he.", "His brother is wiser than he.", "He is less wise than his brother."], 1],
+["Choose the correct positive sentence for: 'Gold is heavier than any other metal.'",
+["No other metal is as heavy as gold.", "Gold is very heavy.", "Some metals are heavy.", "Gold is the heaviest metal."], 0],
+["Choose the correct negative sentence of: 'He left no stone unturned.'",
+["He tried every possible means.", "He did not leave any stone unturned.", "He turned all stones.", "He did not leave the stone."], 0],
+["Choose the correct exclamatory sentence of: 'I wish I had wings.'",
+["Oh, that I had wings!", "If I have wings!", "Had I wings!", "Both A and C are correct."], 3],
+["Choose the correct assertive sentence of: 'If only I could meet him once!'",
+["I earnestly wish that I could meet him once.", "I could meet him once.", "I wish to meet him.", "Meeting him once is my wish."], 0],
+["Choose the correct negative sentence of: 'He is the best boy in the class.'",
+["No other boy in the class is as good as he.", "He is not a bad boy.", "He is better than any other boy.", "None is better than him."], 0],
+["Choose the correct affirmative sentence of: 'No sooner did the police arrive than the thief fled.'",
+["As soon as the police arrived, the thief fled.", "When the police arrived, the thief fled.", "The police arrived and the thief fled immediately.", "Immediately the police arrived, the thief fled."], 0],
+["Choose the correct negative sentence of: 'Man is mortal.'",
+["Man is not immortal.", "Man is not mortal.", "Can man be immortal?", "Man will die."], 0]
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const q=questions[current];
+document.getElementById("counter").textContent=`Question ${current+1} of ${questions.length}`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">${q[0]}</div>`;
+q[1].forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(65+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Keep up the great work.":
+percentage>=60?"Good work! 👍 Revise Transformation rules once more.":
+"Keep practicing. 📚 Read Transformation rules and try again.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((q,i)=>{
+const correct=answers[i]===q[2];
+const yourAnswer=answers[i]===null?"Not answered":q[1][answers[i]];
+const timeSpent=questionTimes[i]||0;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${i+1}. ${q[0]}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${q[1][q[2]]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
