@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Direct and Indirect Speech | Quiz | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • Grammar • Direct and Indirect Speech</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#story">Story of English</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>Direct and Indirect Speech</h2>
+<p>Class 12th English Grammar • Bihar Board • Important MCQs | <b>25 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 1 of 25</span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+["Choose the correct indirect speech of: He said, 'I am happy.'",
+["He said that he is happy.", "He said that he was happy.", "He tells that he was happy.", "He says that he is happy."], 1],
+["Choose the correct indirect speech of: She says, 'I write a letter.'",
+["She says that she wrote a letter.", "She says that she writes a letter.", "She said that she wrote a letter.", "She tells that she is writing."], 1],
+["Choose the correct indirect speech of: Ram said to me, 'You are wrong.'",
+["Ram told me that I was wrong.", "Ram said me that you were wrong.", "Ram told me that you are wrong.", "Ram asked me that I was wrong."], 0],
+["Choose the correct indirect speech of: He said to her, 'Where do you live?'",
+["He asked her where she lives.", "He asked her where did she live.", "He asked her where she lived.", "He told her where she lived."], 2],
+["Choose the correct indirect speech of: The teacher said to the boy, 'Open the door.'",
+["The teacher ordered the boy to open the door.", "The teacher requested the boy open the door.", "The teacher said to open the door.", "The boy ordered the teacher to open the door."], 0],
+["Choose the correct indirect speech of: She said, 'May God bless you!'",
+["She prayed that God might bless me.", "She wished that God may bless me.", "She prayed that God will bless me.", "She said that God blessed me."], 0],
+["Choose the correct indirect speech of: He said, 'Alas! I am undone.'",
+["He exclaimed with sorrow that he was undone.", "He said that he was undone with sorrow.", "He cried with joy that he was undone.", "He exclaimed sadly that I am undone."], 0],
+["Choose the correct indirect speech of: Mohan said, 'I will go tomorrow.'",
+["Mohan said that he will go tomorrow.", "Mohan said that he would go the next day.", "Mohan said that he would go tomorrow.", "Mohan says that he would go the next day."], 1],
+["Choose the correct indirect speech of: She said to me, 'Are you reading a book?'",
+["She asked me if I am reading a book.", "She asked me whether I was reading a book.", "She told me if I was reading a book.", "She asked me that I was reading a book."], 1],
+["Choose the correct direct speech of: He asked me what my name was.",
+["He said to me, 'What is your name?'", "He asked me, 'What was your name?'", "He says to me, 'What is my name?'", "He told me, 'What is your name?'"], 0],
+["Choose the correct indirect speech of: The teacher said, 'The earth moves round the sun.'",
+["The teacher said that the earth moved round the sun.", "The teacher said that the earth moves round the sun.", "The teacher told that the earth had moved round the sun.", "The teacher asked if the earth moves round the sun."], 1],
+["Choose the correct indirect speech of: He said, 'Bravo! You have done well.'",
+["He applauded him saying that he had done well.", "He said bravo that you have done well.", "He exclaimed with joy that he has done well.", "He praised him and said you did well."], 0],
+["Choose the correct indirect speech of: She said to her mother, 'Please give me some money.'",
+["She requested her mother to give her some money.", "She ordered her mother to give her some money.", "She told her mother please give me money.", "She asked her mother that give her some money."], 0],
+["Choose the correct indirect speech of: He said, 'Let us go out for a walk.'",
+["He suggested that they should go out for a walk.", "He proposed that let us go for a walk.", "He said that we should go for a walk.", "He requested to go out for a walk."], 0],
+["Choose the correct indirect speech of: Rahul said, 'I must finish this work today.'",
+["Rahul said that he must finish that work that day.", "Rahul said that he had to finish this work today.", "Rahul said that he must finished that work that day.", "Rahul said that he would have to finish that work today."], 0],
+["Choose the correct indirect speech of: She said, 'If I were a bird, I would fly.'",
+["She said that if she were a bird, she would fly.", "She said if she was a bird, she will fly.", "She wished that if she is a bird, she would fly.", "She said that she would fly if she is a bird."], 0],
+["Choose the correct indirect speech of: He said, 'I have been living here for two years.'",
+["He said that he has been living there for two years.", "He said that he had been living there for two years.", "He said that he had lived here for two years.", "He said that he was living there for two years."], 1],
+["Choose the correct indirect speech of: The old man said, 'Virtue is its own reward.'",
+["The old man said that virtue was its own reward.", "The old man said that virtue is its own reward.", "The old man told that virtue had been its own reward.", "The old man stated virtue is its reward."], 1],
+["Choose the correct indirect speech of: He said to me, 'Don't waste your time.'",
+["He ordered me not to waste my time.", "He told me to not waste your time.", "He forbade me not to waste my time.", "He requested me don't waste time."], 0],
+["Choose the correct indirect speech of: Sita said to Gita, 'When will you return?'",
+["Sita asked Gita when she would return.", "Sita asked Gita when would she return.", "Sita told Gita when she will return.", "Sita asked Gita when she returns."], 0],
+["Choose the correct indirect speech of: He said, 'Good morning, my friend.'",
+["He wished his friend good morning.", "He told his friend good morning.", "He said good morning to his friend.", "Both A and C are correct."], 3],
+["Choose the correct indirect speech of: She said, 'Thank you, sir.'",
+["She thanked the sir.", "She respectfully thanked him.", "She said thank you to sir.", "She thanked him."], 1],
+["Choose the correct indirect speech of: He said to me, 'You did it.'",
+["He told me that I did it.", "He told me that I had done it.", "He told me that you had done it.", "He told that I have done it."], 1],
+["Choose the correct indirect speech of: Father said to me, 'Work hard lest you should fail.'",
+["Father advised me to work hard lest I should fail.", "Father told me to work hard lest I should not fail.", "Father warned me work hard lest you fail.", "Father requested me to work hard so that you fail not."], 0],
+["Choose the correct indirect speech of: He said, 'Hush! Do not make a noise.'",
+["He told them to hush and not make a noise.", "He asked them quietly not to make a noise.", "He told them to keep quiet and not to make a noise.", "He exclaimed to hush and not make noise."], 2]
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const q=questions[current];
+document.getElementById("counter").textContent=`Question ${current+1} of ${questions.length}`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">${q[0]}</div>`;
+q[1].forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(65+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Keep up the great work.":
+percentage>=60?"Good work! 👍 Revise Narration rules once more.":
+"Keep practicing. 📚 Read Narration rules and try again.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((q,i)=>{
+const correct=answers[i]===q[2];
+const yourAnswer=answers[i]===null?"Not answered":q[1][answers[i]];
+const timeSpent=questionTimes[i]||0;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${i+1}. ${q[0]}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${q[1][q[2]]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
