@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objective Quiz (61-100) | 2024 Board Exam | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • 2024 Exam • Objective (61-100)</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>2024 Board Exam Solutions (Q61 to Q100)</h2>
+<p>Class 12th English • Rainbow Part-2 & Story of English • <b>40 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 61 of 100</span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+["'Indian Civilization and Culture' is written by: (Choose the correct option)", ["Dr. Zakir Hussain", "Mahatma Gandhi", "Martin Luther King, Jr.", "Bertrand Russell"], 1],
+["Dr. Zakir Hussain took the oath as the President of India in: (Choose the correct option)", ["1965", "1966", "1967", "1968"], 2],
+["Nanukaka was coming to Delhi to see some: (Choose the correct option)", ["Ministers", "Doctors", "Governors", "Teachers"], 0],
+["Martin Luther King, Jr. delivered his speech 'I Have a Dream' in: (Choose the correct option)", ["Chicago", "Washington D.C.", "New York", "Atlanta"], 1],
+["Bertrand Russell was awarded the Nobel Prize in Literature in: (Choose the correct option)", ["1950", "1952", "1953", "1948"], 0],
+["Seibei was a twelve-year-old ________ boy. (Choose the correct option)", ["Chinese", "Japanese", "Indian", "Korean"], 1],
+["Germaine Greer is an ________ writer. (Choose the correct option)", ["Indian", "American", "Australian", "British"], 2],
+["H. E. Bates wrote the story: (Choose the correct option)", ["The Earth", "The Artist", "A Pinch of Snuff", "I Have a Dream"], 0],
+["Pearl S. Buck came to India to see and listen to: (Choose the correct option)", ["Politicians", "Two groups of people", "Businessmen", "Actors"], 1],
+["'A Marriage Proposal' is written by: (Choose the correct option)", ["Anton Chekhov", "H. E. Bates", "Shiga Naoya", "Pearl S. Buck"], 0],
+["'Sweetest Love I Do Not Goe' is written by: (Choose the correct option)", ["John Donne", "John Keats", "Walt Whitman", "W. H. Auden"], 0],
+["Walt Whitman was a/an ________ poet. (Choose the correct option)", ["British", "American", "Indian", "Irish"], 1],
+["'Now the Leaves are Falling Fast' is written by: (Choose the correct option)", ["W. H. Auden", "John Keats", "Rupert Brooke", "Walter de la Mare"], 0],
+["John Keats was a ________ poet. (Choose the correct option)", ["Romantic", "Metaphysical", "Modern", "War"], 0],
+["'An Epitaph' deals with a beautiful: (Choose the correct option)", ["Lady", "Girl", "Child", "Woman"], 0],
+["Rupert Brooke was a: (Choose the correct option)", ["War Poet", "Nature Poet", "Children's Poet", "Love Poet"], 0],
+["Macavity is called the: (Choose the correct option)", ["Hidden Paw", "Exposed Paw", "Mystic Paw", "Big Paw"], 0],
+["K. N. Daruwalla is a recipient of: (Choose the correct option)", ["Sahitya Akademi Award", "Nobel Prize", "Pulitzer Prize", "Booker Prize"], 0],
+["D. H. Lawrence wrote the poem: (Choose the correct option)", ["Snake", "Fire-Hymn", "The Soldier", "An Epitaph"], 0],
+["Kamala Das has written the poem: (Choose the correct option)", ["My Grandmother's House", "Snake", "Fire-Hymn", "An Epitaph"], 0],
+["In England, the Printing Press was invented in: (Choose the correct option)", ["1475", "1477", "1476", "1478"], 2],
+["The Great Vowel Shift took place during the ________ period. (Choose the correct option)", ["Old English", "Middle English", "Modern English", "Post-Modern English"], 1],
+["Who wrote 'Untouchable' and 'Coolie'? (Choose the correct option)", ["Mulk Raj Anand", "R. K. Narayan", "Raja Rao", "Anita Desai"], 0],
+["English is spoken as a second language in: (Choose the correct option)", ["India", "UK", "USA", "Australia"], 0],
+["'Piers Plowman' is written by: (Choose the correct option)", ["William Langland", "Geoffrey Chaucer", "John Gower", "John Wyclif"], 0],
+["The Anglo-Saxons were ________ people. (Choose the correct option)", ["Germanic", "Indian", "Greek", "Roman"], 0],
+["Modern English period begins from: (Choose the correct option)", ["AD 1500", "AD 1400", "AD 1150", "AD 449"], 0],
+["Standard British English pronunciation is also known as: (Choose the correct option)", ["Received Pronunciation", "Direct Pronunciation", "Global Speech", "Native Speech"], 0],
+["Who wrote 'The Waste Land'? (Choose the correct option)", ["T. S. Eliot", "W. B. Yeats", "Ezra Pound", "John Keats"], 0],
+["Old English period covers: (Choose the correct option)", ["AD 449 - AD 1066", "AD 1150 - AD 1500", "AD 1500 onwards", "AD 600 - AD 1200"], 0],
+["'Bharat is My Home' is an extract from the speech of: (Choose the correct option)", ["Dr. Zakir Hussain", "Mahatma Gandhi", "Dr. Rajendra Prasad", "Jawaharlal Nehru"], 0],
+["Nanukaka was the author's: (Choose the correct option)", ["Maternal Uncle", "Paternal Uncle", "Brother", "Father"], 0],
+["Martin Luther King, Jr. belonged to the: (Choose the correct option)", ["USA", "UK", "France", "Germany"], 0],
+["Who declared that 'Ideas That Have Helped Mankind' was written by him? (Choose the correct option)", ["Bertrand Russell", "Shiga Naoya", "Pearl S. Buck", "H. E. Bates"], 0],
+["Seibei's hobby was collecting: (Choose the correct option)", ["Stamps", "Coins", "Gourds", "Flowers"], 2],
+["'A Marriage Proposal' is a one-act: (Choose the correct option)", ["Tragedy", "Comedy", "Farce / Play", "Melodrama"], 2],
+["'Song of Myself' is composed by: (Choose the correct option)", ["Walt Whitman", "John Keats", "D. H. Lawrence", "W. H. Auden"], 0],
+["'The Soldier' is a ________ poem. (Choose the correct option)", ["Love", "War", "Nature", "Sad"], 1],
+["Macavity is a ________ cat. (Choose the correct option)", ["Mystery", "Lazy", "Foolish", "Tame"], 0],
+["'Fire-Hymn' depicts the scene of a: (Choose the correct option)", ["Burning Ghat", "River", "Forest", "Garden"], 0]
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const q=questions[current];
+const displayQNum = current + 61;
+document.getElementById("counter").textContent=`Question ${displayQNum} of 100`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">Q${displayQNum}. ${q[0]}</div>`;
+q[1].forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(65+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Literature section is rock solid.":
+percentage>=60?"Good job! 👍 Revise your textbook authors and chapters once more.":
+"Keep practicing. 📚 Re-read Rainbow Part-2 and Story of English.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((q,i)=>{
+const correct=answers[i]===q[2];
+const yourAnswer=answers[i]===null?"Not answered":q[1][answers[i]];
+const timeSpent=questionTimes[i]||0;
+const qNum = i + 61;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${qNum}. ${q[0]}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${q[1][q[2]]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
