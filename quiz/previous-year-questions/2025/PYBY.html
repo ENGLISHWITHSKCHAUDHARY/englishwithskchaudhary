@@ -1,1 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objective Questions (1-60) | Board Exam 2025 | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • Official Board Paper 2025 • Objective (1-60)</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>Board Exam 2025 Official Solutions (Q1 to Q60)</h2>
+<p>Class 12th English • Bihar Board • Questions 1 to 60 | <b>60 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 1 of 60</span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+["He has ________ European friend. (Choose the correct option)", ["a", "an", "the", "no article"], 0],
+["She ________ a song now. (Choose the correct option)", ["sings", "is singing", "sang", "has sung"], 1],
+["He killed the tiger ________ a gun. (Choose the correct option)", ["by", "with", "from", "at"], 1],
+["The teacher said, \"The earth moves round the sun.\" (Choose the correct indirect speech)", ["The teacher said that the earth moved round the sun.", "The teacher said that the earth moves round the sun.", "The teacher asked if the earth moves round the sun.", "The teacher told that the earth had moved round the sun."], 1],
+["Bread and butter ________ my favorite breakfast. (Choose the correct option)", ["is", "are", "were", "have"], 0],
+["Choose the correctly spelt word:", ["Receive", "Recieve", "Receve", "Receeev"], 0],
+["He is honest ________ poor. (Choose the correct option)", ["so", "but", "and", "or"], 1],
+["You ________ obey your parents. (Choose the correct option)", ["should", "can", "may", "could"], 0],
+["A person who writes books is called a/an ________. (Choose the correct option)", ["Actor", "Author", "Painter", "Doctor"], 1],
+["Antonym of 'Active' is: (Choose the correct option)", ["Lazy", "Passive", "Slow", "Quiet"], 1],
+["Synonym of 'Huge' is: (Choose the correct option)", ["Small", "Tiny", "Enormous", "Little"], 2],
+["The door was opened ________ him. (Choose the correct option)", ["by", "with", "from", "at"], 0],
+["Neither of the two boys ________ present. (Choose the correct option)", ["was", "were", "are", "have"], 0],
+["She has been working here ________ two hours. (Choose the correct option)", ["since", "for", "from", "by"], 1],
+["Look ________ the blackboard. (Choose the correct option)", ["in", "at", "on", "to"], 1],
+["Choose the correct sentence:", ["He is a honorable man.", "He is an honorable man.", "He is the honorable man.", "He is honorable man."], 1],
+["He prefers tea ________ coffee. (Choose the correct option)", ["than", "to", "from", "over"], 1],
+["\"Don't make a noise,\" the master said to the boys. (Choose the correct indirect narration)", ["The master ordered the boys not to make a noise.", "The master asked the boys to not make a noise.", "The master told the boys don't make a noise.", "The master requested the boys to not make a noise."], 0],
+["I saw a ________ of cows in the field. (Choose the correct option)", ["herd", "flock", "pack", "bunch"], 0],
+["He ________ to school every day. (Choose the correct option)", ["go", "goes", "going", "gone"], 1],
+["Choose the correctly spelt word:", ["Tomorrow", "Tommorow", "Tomorow", "Tomorrowe"], 0],
+["The lion is the king of the forest. (Choose the correct active/passive voice transformation of: 'The lion killed a deer.')", ["A deer is killed by the lion.", "A deer was killed by the lion.", "A deer had killed by the lion.", "A deer was killing the lion."], 1],
+["He died ________ cholera. (Choose the correct option)", ["of", "from", "with", "by"], 0],
+["If it rains, we ________ not go out. (Choose the correct option)", ["shall", "would", "had", "did"], 0],
+["She is good ________ English. (Choose the correct option)", ["in", "at", "with", "on"], 1],
+["Antonym of 'Beautiful' is: (Choose the correct option)", ["Ugly", "Pretty", "Nice", "Clean"], 0],
+["Synonym of 'Allow' is: (Choose the correct option)", ["Permit", "Deny", "Refuse", "Ban"], 0],
+["He is ________ best student in the class. (Choose the correct option)", ["a", "an", "the", "no article"], 2],
+["Each of the girls ________ a doll. (Choose the correct option)", ["has", "have", "are", "were"], 0],
+["I have not seen him ________ Monday last. (Choose the correct option)", ["for", "since", "from", "by"], 1],
+["Slow and steady ________ the race. (Choose the correct option)", ["win", "wins", "winning", "has won"], 1],
+["He was guilty ________ theft. (Choose the correct option)", ["of", "for", "with", "about"], 0],
+["Choose the correct sentence:", ["She do not like sweets.", "She does not likes sweets.", "She does not like sweets.", "She is not like sweets."], 2],
+["The river flows ________ the bridge. (Choose the correct option)", ["under", "over", "on", "in"], 0],
+["Write a letter to your friend. (Choose the correct passive voice)", ["Let a letter be written to your friend.", "A letter should write to your friend.", "Let your friend written a letter.", "A letter was written by your friend."], 0],
+["The teacher asked the student, \"Why are you late?\" (Choose the correct indirect narration)", ["The teacher asked the student why he was late.", "The teacher asked the student why was he late.", "The teacher asked the student that why he is late.", "The teacher told the student why he is late."], 0],
+["Choose the correctly spelt word:", ["Knowledge", "Knowlege", "Knowladge", "Nowledge"], 0],
+["A place where books are kept is called a ________. (Choose the correct option)", ["Museum", "Library", "Zoo", "Auditorium"], 1],
+["He has ________ hope of recovery. (Choose the correct option)", ["little", "few", "many", "any"], 0],
+["One of the boys ________ absent today. (Choose the correct option)", ["is", "are", "were", "have"], 0],
+["She ________ her homework just now. (Choose the correct option)", ["finished", "has finished", "is finishing", "will finish"], 1],
+["Don't cry ________ spilt milk. (Choose the correct option)", ["on", "over", "at", "in"], 1],
+["The police ________ arrived. (Choose the correct option)", ["has", "have", "is", "was"], 1],
+["He is senior ________ me. (Choose the correct option)", ["than", "to", "from", "over"], 1],
+["Antonym of 'Ancient' is: (Choose the correct option)", ["Old", "Modern", "Past", "Historic"], 1],
+["Synonym of 'Begin' is: (Choose the correct option)", ["Stop", "Start", "End", "Finish"], 1],
+["Choose the correct sentence:", ["I am having a car.", "I have a car.", "I has a car.", "I am have a car."], 1],
+["He is absent ________ the class. (Choose the correct option)", ["from", "in", "at", "to"], 0],
+["Walk carefully lest you ________ fall. (Choose the correct option)", ["should", "would", "may", "can"], 0],
+["Choose the correctly spelt word:", ["Grammar", "Grammer", "Gramar", "Gramer"], 0],
+["\"I can solve this problem,\" he said. (Choose the correct indirect narration)", ["He said that he could solve that problem.", "He said that he can solve this problem.", "He said he would solve that problem.", "He asked if he could solve that problem."], 0],
+["The car ran ________ a dog. (Choose the correct option)", ["over", "on", "in", "under"], 0],
+["He as well as his friends ________ coming. (Choose the correct option)", ["is", "are", "were", "have"], 0],
+["She is ________ M.A. in English. (Choose the correct option)", ["a", "an", "the", "no article"], 1],
+["A national song of praise is called a/an ________. (Choose the correct option)", ["Anthem", "Poem", "Hymn", "Ballad"], 0],
+["Antonym of 'Gain' is: (Choose the correct option)", ["Profit", "Loss", "Win", "Benefit"], 1],
+["Synonym of 'Timid' is: (Choose the correct option)", ["Brave", "Cowardly", "Bold", "Fearless"], 1],
+["They have been playing cricket ________ morning. (Choose the correct option)", ["for", "since", "from", "by"], 1],
+["Choose the correct sentence:", ["He don't know the answer.", "He doesn't knows the answer.", "He doesn't know the answer.", "He not know the answer."], 2],
+["May I ________ your pen? (Choose the correct option)", ["borrow", "lend", "keep", "take away"], 0]
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const q=questions[current];
+document.getElementById("counter").textContent=`Question ${current+1} of ${questions.length}`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">${q[0]}</div>`;
+q[1].forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(65+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Keep up the great work.":
+percentage>=60?"Good work! 👍 Revise the chapter once more.":
+"Keep practicing. 📚 Read the chapter and try again.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((q,i)=>{
+const correct=answers[i]===q[2];
+const yourAnswer=answers[i]===null?"Not answered":q[1][answers[i]];
+const timeSpent=questionTimes[i]||0;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${i+1}. ${q[0]}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${q[1][q[2]]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
 
