@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objective Questions (61-100) | Quiz | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • Model Question Paper 2026 • Objective (61-100)</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>Model Question Paper 2026 (Prescribed Texts & Grammar)</h2>
+<p>Class 12th English • Bihar Board • Questions 61 to 100 | <b>40 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 1 of 40</span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+["In 'Sweetest Love, I Do Not Goe', to which natural event does the poet compare his return?", [
+"The sun rising after setting yesternight",
+"The rising of the moon",
+"The return of spring",
+"The flowing of a river"
+], 0],
+["What, according to Mahatma Gandhi, is the true test of a civilization?", [
+"Its moral and spiritual progress",
+"Its military strength",
+"Its economic prowess",
+"Absolute freedom and liberty"
+], 0],
+["In 'Bharat is My Home', Dr Zakir Hussain compares the nation to:", [
+"a home",
+"a garden",
+"a temple",
+"a school"
+], 0],
+["What central idea does Walt Whitman express in the poem 'Song of Myself'?", [
+"The unity of all human beings and nature",
+"The importance of wealth",
+"The need for personal achievements",
+"The rejection of society"
+], 0],
+["Who is Nanukaka in the story 'A Pinch of Snuff'?", [
+"The narrator's uncle",
+"An astrologer",
+"The narrator's father",
+"A politician"
+], 0],
+["The Lines, 'Nurses to their graves are gone,/ But the prams go rolling on' are taken from:", [
+"Now the Leaves are Falling Fast",
+"An Epitaph",
+"Snake",
+"Fire-Hymn"
+], 0],
+["Where was 'I Have A Dream' speech delivered?", [
+"Lincoln Memorial, Washington D.C.",
+"The Red Fort, New Delhi",
+"Capitol Hill, Washington D.C.",
+"Buckingham Palace, England"
+], 0],
+["Which of the following ideas is not mentioned by Bertrand Russell in the essay 'Ideas That Have Helped Mankind'?", [
+"The art of war",
+"The taming of domestic animals",
+"The invention of agriculture",
+"The art of writing"
+], 0],
+["Which of the following is not an image of autumn described in the poem 'Ode to Autumn'?", [
+"Snow-laden mountain peaks",
+"Ripened fruits and flowers",
+"The bleating of the full-grown lambs",
+"Swallows twittering in the sky"
+], 0],
+["'The Soldier' by Rupert Brooke is :", [
+"a sonnet",
+"an ode",
+"a ballad",
+"a dramatic monologue"
+], 0],
+["Where did Seibei live?", [
+"In a harbour town one could cross in twenty minutes",
+"In a bustling city",
+"In a village by the forest",
+"In a mountain hamlet"
+], 0],
+["What, according to Pearl S Buck, was the most important thing for understanding India?", [
+"Meeting common Indian people.",
+"Reading Indian Literature.",
+"Learning Indian languages.",
+"Studying Indian history."
+], 0],
+["Which of the following is not one of the four dialects of Old English?", [
+"West Midland",
+"Kentish",
+"West Saxon",
+"Mercian"
+], 0],
+["Which of the following is a famous work from the Middle English period?", [
+"The Canterbury Tales",
+"Paradise Lost",
+"Beowulf",
+"Utopia"
+], 0],
+["Which event in 1476 helped standardize Modern English spelling and grammar?", [
+"Introduction of Printing Press by Caxton",
+"The Norman Conquest",
+"The Renaissance",
+"The Industrial Revolution"
+], 0],
+["The word 'bazaar' was borrowed by English from which of the following languages?", [
+"Persian",
+"Hindi",
+"Arabic",
+"Turkish"
+], 0],
+["Who among the following was a University wit?", [
+"Christopher Marlowe",
+"William Congreve",
+"T.S. Eliot",
+"William Shakespeare"
+], 0],
+["The origin of English novel is traced back to the:", [
+"18th-Century",
+"14th-Century",
+"16th-Century",
+"20th-Century"
+], 0],
+["In the poem 'Snake', the voice of the poet's education on spotting a snake told him to", [
+"kill the snake",
+"admire the snake",
+"feed the snake",
+"avoid the snake"
+], 0],
+["Dorothy L. Sayers suggests that the press often:", [
+"Shapes public opinion through selective reporting",
+"Reports with perfect objectivity",
+"Avoids influencing readers",
+"Focuses only on financial news"
+], 0],
+["What does the poet say about 'Death' in the poem 'Sweetest Love, I Do Not Goe'?", [
+"It is inevitable and destined",
+"It is far away",
+"It is only for the old",
+"It cannot be avoided by love"
+], 0],
+["How does Gandhi view the Western idea of progress?", [
+"As dangerous and materialistic",
+"As necessary to bring about equality",
+"As an advantage to the cultural harmony of India",
+"As a goal of civilization"
+], 0],
+["What does Dr. Zakir Hussain emphasize as essential for national progress?", [
+"Hard work and cooperation",
+"Political debate",
+"Foreign Aid",
+"Material prosperity"
+], 0],
+["Who among the following is known as the 'people's poet'?", [
+"Walt Whitman",
+"Keki N. Daruwalla",
+"Kamala Das",
+"John Keats"
+], 0],
+["What does the speaker in 'Fire-Hymn' see while passing by the cremation ghat?", [
+"half-burnt bodies",
+"A lush green forest",
+"An old mountain",
+"A serene lake"
+], 0],
+["'Now the Leaves are Falling Fast' is a poem of:", [
+"Five stanzas of four lines each",
+"Five stanzas of five lines each",
+"Three stanzas of four lines each",
+"Three stanzas of five lines each"
+], 0],
+["Martin Luther King Jr. was assassinated in.", [
+"Tennessee",
+"Georgia",
+"Colorado",
+"Mississippi"
+], 0],
+["The line 'The tribes that worshipped lions and crocodiles died out, while those to whom the cow or the sheep was a sacred animal prospered,' appears in:", [
+"Ideas that Have Helped Mankind",
+"I Have a Dream",
+"How Free is the Press",
+"Indian Civilization and Culture"
+], 0],
+["How many stanzas are there in the poem 'Ode to Autumn'?", [
+"Three",
+"Four",
+"Five",
+"Six"
+], 0],
+["The phrase 'her sights and sounds' in the poem 'The Soldier' refers to", [
+"Memories of England",
+"a foreign battlefield",
+"A graveyard",
+"Palaces and Castles"
+], 0],
+["The Old English period lasted from:", [
+"449-1066 AD",
+"1150-1500 AD",
+"1500-1660 AD",
+"400-1000 AD"
+], 0],
+["Who wrote 'Piers the Plowman'?", [
+"Langland",
+"Gower",
+"Chaucer",
+"Wycliffe"
+], 0],
+["A Dictionary of English Language was published by Dr. Samuel Johnson in", [
+"1755",
+"1664",
+"1813",
+"1066"
+], 0],
+["What reaction did Seibei's ethics teacher have when he saw him polishing the gourd in class?", [
+"He was furious",
+"He praised him",
+"He laughed it off",
+"He ignored it"
+], 0],
+["What had always been part of Pearl S. Buck's background?", [
+"China",
+"India",
+"U.S.",
+"England"
+], 0],
+["In morality plays the characters were often:", [
+"Virtues personified",
+"Kings and Queens",
+"Famous poets",
+"Roman deities"
+], 0],
+["The Restoration Age is especially known for:", [
+"Comedy of Manners",
+"Miracle Plays",
+"Absurd Drama",
+"Poetic plays"
+], 0],
+["Who wrote the novel 'Robinson Crusoe'?", [
+"Daniel Defoe",
+"Samuel Richardson",
+"Jonathan Swift",
+"Henry Fielding"
+], 0],
+["'A Child is Born' explores the cultural peculiarities of", [
+"The East and the West",
+"Indian and Chinese",
+"Swedish and African",
+"American and Indian"
+], 0],
+["In 'A Marriage Proposal' what is the main cause of quarrel between Lomov and Natalia?", [
+"Land ownership disputes",
+"Marriage expenses",
+"Dowry amount",
+"Political differences"
+], 0]
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const q=questions[current];
+document.getElementById("counter").textContent=`Question ${current+1} of ${questions.length}`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">${q[0]}</div>`;
+q[1].forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(65+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Keep up the great work.":
+percentage>=60?"Good work! 👍 Revise the chapter once more.":
+"Keep practicing. 📚 Read the chapter and try again.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((q,i)=>{
+const correct=answers[i]===q[2];
+const yourAnswer=answers[i]===null?"Not answered":q[1][answers[i]];
+const timeSpent=questionTimes[i]||0;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${i+1}. ${q[0]}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${q[1][q[2]]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
