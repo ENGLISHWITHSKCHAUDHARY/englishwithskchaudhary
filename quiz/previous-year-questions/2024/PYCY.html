@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objective Questions (1-60) | Board Exam 2024 (Set-F) | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • Official Board Paper 2024 (Set-F) • Objective (1-60)</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>Board Exam 2024 Official Solutions (Q1 to Q60)</h2>
+<p>Class 12th English • Bihar Board Set-F • Section-A | <b>60 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 1 of 60</span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+["1. Akbar was ________ noblest king.", ["a", "an", "the", "no article"], 2],
+["2. Moti always ________ chappatis in his dinner.", ["eat", "eats", "eating", "eaten"], 1],
+["3. Choose the correct sentence:", ["He prevented me from going there", "He prevented me to go there", "He prevents me at going there", "He preventing me through going there"], 0],
+["4. He ________ not be there.", ["is", "shall", "need", "must"], 3],
+["5. ________ the grass.", ["Keep off", "Keep on", "Keep up", "Keep away"], 0],
+["6. ________ chair is required.", ["More", "Much", "Many", "An extra"], 3],
+["7. His progress satisfied me. (Choose the correct passive voice)", ["I was satisfying with his progress.", "I am satisfy with his progress.", "I was satisfied with his progress.", "I have to be satisfy with his progress."], 2],
+["8. The engagement party was cancelled as ________ people were against the marriage.", ["some", "the some", "little", "the few"], 0],
+["9. Ramesh has been absent ________ Friday.", ["since", "from", "for", "by"], 0],
+["10. Chicken and rice ________ my favourite dish.", ["are", "had", "is", "have"], 2],
+["11. Nadal won all the matches played in Paris. (Choose the correct negative sentence)", ["Nadal does not win all the matches played in Paris.", "Nadal did not lose a single match played in Paris.", "Nadal was not able to lose any match played in Paris.", "Nadal had lost any match not played in Paris."], 1],
+["12. He says to me, \"You are my friend.\" (Choose the correct indirect narration)", ["He tells me that I am his friend.", "He telling me that I will be his friend.", "He told me I am friend of his.", "He will tell me that I will be his friend."], 0],
+["13. We should think ________ this matter deeply.", ["by", "in", "over", "off"], 2],
+["14. Choose the correct meaning of : \"To read between the lines\"", ["to understand the hidden meaning", "to learn quickly", "to laugh at", "to have good sight"], 0],
+["15. Choose the odd one out:", ["School", "University", "Office", "College"], 2],
+["16. ________ shall I fear but the ones who hurt me ?", ["Whose", "Whom", "Who", "Which"], 1],
+["17. Choose the correct synonym of 'Forbid':", ["Allow", "Prohibit", "Accomplish", "Hold"], 1],
+["18. The antonym of 'Duplicate' is", ["Copy", "Original", "Clone", "Photo"], 1],
+["19. Choose the correct sentence:", ["I did my work quick.", "I did my work very quick.", "I did my work quickly.", "I do my working quick."], 2],
+["20. I didn't ________ where he was going.", ["know", "knew", "knowing", "will know"], 0],
+["21. If you invite me, I ________ certainly come.", ["could", "would", "might", "would have"], 1],
+["22. Choose the mis-spelt word:", ["Campaign", "Controversy", "Secretry", "Decision"], 2],
+["23. Choose the mis-spelt word:", ["Harmaeni", "Harmony", "Harmany", "Harmeny"], 0],
+["24. Choose the correct one word substitution of: \"Ceremony of crowning a king\"", ["Coquette", "Demagogue", "Coronation", "Deprecate"], 2],
+["25. Give me something to eat ________ I shall die of hunger.", ["else", "can", "for", "but"], 0],
+["26. All his ________ is stolen.", ["luggages", "beds", "luggage", "furnitures"], 2],
+["27. I bought ________ a shirt.", ["itself", "himself", "herself", "myself"], 3],
+["28. She is very dull. She cannot pass. (Choose the best combination)", ["She is too dull to pass", "To pass is she too dull", "Dull is she too to pass", "Too dull is to pass she"], 0],
+["29. Praveen does not ________ with Mohan.", ["agreed", "agree", "to agree", "agreeing"], 1],
+["30. We met a lot of people ________ our holidays.", ["on", "at", "by", "during"], 3],
+["31. Choose the correctly spelt word:", ["Concent", "Cunsent", "Consent", "Counsent"], 2],
+["32. They should not ________ upon the poor.", ["look up", "look down", "look after", "look on"], 1],
+["33. There is ________ university here.", ["a", "an", "the", "no article"], 0],
+["34. Rajesh is still shouting, ________ ?", ["not he is", "not is he", "wasn't he", "isn't he"], 3],
+["35. Choose the correct antonym of 'Trivial':", ["Rural", "Important", "Loss", "Artificial"], 1],
+["36. This child is very ________ to me.", ["deer", "dear", "dare", "dearer"], 1],
+["37. He cannot put ________ with such insult.", ["of", "up", "down", "from"], 1],
+["38. Neither of the two men ________ done this.", ["have", "has", "may", "should"], 1],
+["39. Choose the correct spelling:", ["Risemblence", "Resiemblience", "Resemblance", "Risimblence"], 2],
+["40. He said to Rita, \"Am I ill?\" (Choose the correct indirect speech)", ["He says that he is ill to Rita.", "He will say to Rita that he is ill.", "He asked Rita if he was ill.", "He said to Rita if he is ill."], 2],
+["41. Find out the ________ things.", ["discard", "discarding", "will discard", "discarded"], 3],
+["42. Sri Lanka is ________ island.", ["a", "an", "the", "no article"], 1],
+["43. Ramesh is ________ and hearty.", ["hale", "hail", "heal", "head"], 0],
+["44. Choose the correct sentence:", ["Women were very seldom convict.", "His eyes had hardly close.", "Hardly had he settled into his seat when Radha charged in.", "Hardly nobody came."], 2],
+["45. He said that he ________ be there.", ["would", "need", "can", "want"], 0],
+["46. I have not heard of you ________ last week.", ["since", "in", "by", "for"], 0],
+["47. There are seven days in a ________.", ["weak", "weaker", "week", "seek"], 2],
+["48. The police ________ the thief.", ["arrest", "arrested", "arresting", "has arrest"], 1],
+["49. Do what you want to do, ________ don't disturb me.", ["though", "that", "but", "so"], 2],
+["50. It was not a ________ act at all.", ["pardon", "pardoning", "pardoned", "pardonable"], 3],
+["51. Choose the odd one out:", ["Pen", "Marker", "Paper", "Pencil"], 2],
+["52. You never have bread and butter for breakfast, ________ ?", ["have you", "do you", "don't they", "do they"], 1],
+["53. Choose the correct meaning of: \"Out of question\".", ["Undesirable", "Impossible", "Unpleasant", "Irresistible"], 1],
+["54. Their idea of a holiday ________ at a resort.", ["is relaxed", "is to relaxing", "is to relax", "is relaxing"], 2],
+["55. They decided ________ the white car.", ["about", "on", "in", "of"], 1],
+["56. My cycle did not ________ brakes.", ["has", "have", "had", "did has"], 1],
+["57. It is time for the bell to be rung. (Choose the correct active voice)", ["It will be time to ring the bell.", "Time will be when the bell rings.", "It is time to ring the bell.", "Rings the bell in time."], 2],
+["58. He blamed ________ for the ugly situation.", ["himself", "yourself", "themselves", "itself"], 0],
+["59. We ________ be quiet in the library.", ["mustn't", "doesn't have to", "doesn't", "must"], 3],
+["60. I would have done a better job ________ he did.", ["than", "then", "that", "there"], 0]
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const q=questions[current];
+const actualQNum=current+1;
+document.getElementById("counter").textContent=`Question ${actualQNum} of 60`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">${q[0]}</div>`;
+q[1].forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(65+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Keep up the great work.":
+percentage>=60?"Good work! 👍 Revise the chapter once more.":
+"Keep practicing. 📚 Read the chapter and try again.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((q,i)=>{
+const correct=answers[i]===q[2];
+const yourAnswer=answers[i]===null?"Not answered":q[1][answers[i]];
+const timeSpent=questionTimes[i]||0;
+const actualQNum=i+1;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${actualQNum}. ${q[0]}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${q[1][q[2]]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
