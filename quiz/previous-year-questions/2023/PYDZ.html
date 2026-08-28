@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objective Questions (61-100) | Board Exam 2023 | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • Section-A Objective 2023 (61-100)</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>Objective Questions Solutions (Q61 to Q100) - 2023</h2>
+<p>Class 12th English • Literature & Prescribed Texts • <b>40 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 61 of 100</span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+{qNo: 61, q: "'The Soldier' is a........... poem.", opts: ["nature", "patriotic", "love", "happy"], ans: 1},
+{qNo: 62, q: "Macavity is called", opts: ["the Hidden Paw", "the Mysterious Paw", "the Exposed Paw", "the Naughty Paw"], ans: 0},
+{qNo: 63, q: "The........forgets its dead.", opts: ["man", "animal", "fire", "wind"], ans: 2},
+{qNo: 64, q: "Who is the speaker in the poem 'Snake'?", opts: ["Donne", "Whitman", "Keats", "Lawrence"], ans: 3},
+{qNo: 65, q: "Bertrand Russell belonged to.............", opts: ["Italy", "Germany", "Britain", "America"], ans: 2},
+{qNo: 66, q: "\"I Have a Dream\" is part of a...............", opts: ["drama", "novel", "poem", "speech"], ans: 3},
+{qNo: 67, q: "Manohar Malgaonkar's story is full of wit and..........", opts: ["Humour", "Tragedy", "Adventure", "Irony"], ans: 2},
+{qNo: 68, q: "Who will make quicker journey than the sun?", opts: ["John Donne", "Walt Whitman", "W.H. Auden", "John Keats"], ans: 0},
+{qNo: 69, q: "\"There is a house now far away where once I received love\" is from", opts: ["Song of Myself", "Ode to Autumn", "My Grandmother's House", "Snake"], ans: 2},
+{qNo: 70, q: "The term 'concealed' in \"The Soldier\" stands for", opts: ["hidden", "disappeared", "absent", "mysterious"], ans: 0},
+{qNo: 71, q: "According to Eliot, Macavity is the.............. of crime.", opts: ["Hitler", "Napoleon", "Alexander", "Osama"], ans: 1},
+{qNo: 72, q: "For Auden, poetry was a", opts: ["light game", "interesting game", "serious game", "troublesome game"], ans: 2},
+{qNo: 73, q: "In no civilization have all men attained..........", opts: ["enmity", "jealousy", "perfection", "education"], ans: 2},
+{qNo: 74, q: "Dr. Zakir Hussain was an eminent.......", opts: ["politician", "philosopher", "educationist", "scientist"], ans: 2},
+{qNo: 75, q: "Nanukaka managed to travel in 2nd class on a ticket of", opts: ["1st class", "General class", "Sleeper class", "Third class"], ans: 3},
+{qNo: 76, q: "My children will not be judged by the.................of their skin.", opts: ["colour", "food habits", "education", "culture"], ans: 0},
+{qNo: 77, q: "Who is considered the greatest English dramatist?", opts: ["Geoffrey Chaucer", "Wycliff", "William Langland", "Shakespeare"], ans: 3},
+{qNo: 78, q: "Which is the first Indian Novel in English?", opts: ["Rajmohan's Wife", "Raja Harischandra", "Mahabharata", "The English Teacher"], ans: 0},
+{qNo: 79, q: "The Great Vowel Shift took place during..........", opts: ["Modern English", "Old English", "Middle English", "Post-modern English"], ans: 2},
+{qNo: 80, q: "\"The Romantic Revival\" is often associated with...", opts: ["John Dryden", "Alexander Pope", "William Wordsworth", "John Milton"], ans: 2},
+{qNo: 81, q: "John Donne thinks that........ is certain.", opts: ["death", "life", "work", "walking"], ans: 0},
+{qNo: 82, q: "Keats was..........poet.", opts: ["Romantic", "Victorian", "Modern", "Augustan"], ans: 0},
+{qNo: 83, q: "What has enriched the vocabulary of English", opts: ["Giving", "Borrowing", "Withdrawing", "Depositing"], ans: 1},
+{qNo: 84, q: "Who wrote 'Mac Flecknoe'?", opts: ["John Dryden", "John Keats", "Charles Dickens", "Jane Austen"], ans: 0},
+{qNo: 85, q: "Benjy left the school at.........", opts: ["twenty", "twelve", "fourteen", "sixteen"], ans: 2},
+{qNo: 86, q: "Buck had visited India.....", opts: ["to see the Taj Mahal", "to see the Jama Masjid", "to meet Gandhiji", "to see and listen to two groups of Indian people"], ans: 3},
+{qNo: 87, q: "Lomov asked for.............hand in marriage.", opts: ["Matalia's", "Satalia's", "Natalia's", "Ratalia's"], ans: 2},
+{qNo: 88, q: "India's glory is that it is...........", opts: ["movable", "immovable", "ignorant", "uncivilized"], ans: 1},
+{qNo: 89, q: "........was a dominant influence on Middle English.", opts: ["Latin", "Sanskrit", "Scandinavian", "Greek"], ans: 2},
+{qNo: 90, q: "The literature of the Anglo-Saxons is of...........types.", opts: ["Political", "Religious", "Comedy", "Sentimental"], ans: 1},
+{qNo: 91, q: "The history of English began with the coming of the........from Europe to mainland Britain.", opts: ["Anglo-Saxons", "French tribes", "Indian tribes", "American tribes"], ans: 0},
+{qNo: 92, q: "One who writes a drama is called.........", opts: ["Essayist", "Novelist", "Comedian", "Playwright"], ans: 3},
+{qNo: 93, q: "\"And what I assume you shall assume\" is taken from.......", opts: ["Song of Myself", "An Epitaph", "The Soldier", "Fire-Hymn"], ans: 0},
+{qNo: 94, q: "According to Auden, human life is no better than........", opts: ["dream", "death", "journey", "sleep"], ans: 1},
+{qNo: 95, q: "In..............new leaves and fruits come out on trees.", opts: ["Spring", "Autumn", "Summer", "Winter"], ans: 1},
+{qNo: 96, q: "\"And when I crumble, who will remember\" is written by", opts: ["John Keats", "John Donne", "Rupert Brooke", "Walter de la Mare"], ans: 3},
+{qNo: 97, q: "The two kinds of ideas which contributed most to the mankind were knowledge and technique and..", opts: ["moral and values", "morals and politics", "moral and inventions", "moral and wisdom"], ans: 1},
+{qNo: 98, q: "One day, Seibei was caught red-handed by his..............teacher", opts: ["Hindi", "Mathematics", "Ethics", "Science"], ans: 2},
+{qNo: 99, q: "In a traditional society, a woman is known as the mother of her first born child, but the west regards it as...", opts: ["good", "beneficial", "outrageous", "funny"], ans: 2},
+{qNo: 100, q: "The state is the.............", opts: ["master of the people", "servant of the people", "exploiter of the people", "promoter of the people"], ans: 1}
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const item=questions[current];
+document.getElementById("counter").textContent=`Question ${item.qNo} of 100`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">Q${item.qNo}. ${item.q}</div>`;
+item.opts.forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(97+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((item,i)=>{if(answers[i]===item.ans)score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Your Literature preparation is rock solid.":
+percentage>=60?"Good job! 👍 Revise your textbook chapters once more.":
+"Keep practicing. 📚 Re-read Rainbow Part-2 and Story of English.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((item,i)=>{
+const correct=answers[i]===item.ans;
+const yourAnswer=answers[i]===null?"Not answered":item.opts[answers[i]];
+const timeSpent=questionTimes[i]||0;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${item.qNo}. ${item.q}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${item.opts[item.ans]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
