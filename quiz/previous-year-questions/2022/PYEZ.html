@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objective Questions (61-100) | Board Exam 2022 (Set-E) | English with S.K. Chaudhary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.4}
+header{background:linear-gradient(135deg,#123c78,#1769aa);color:#fff;text-align:center;padding:12px 10px}
+header h1{font-size:clamp(20px,4.5vw,32px)}
+header p{font-size:13px;margin-top:2px}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 8px #0001}
+nav ul{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;list-style:none;padding:6px}
+nav a{text-decoration:none;color:#123c78;font-weight:700;padding:5px 8px;border-radius:6px;font-size:13px}
+nav a:hover{background:#e8f1ff}
+.container{max-width:850px;margin:auto;padding:10px 10px}
+.hero,.quiz-card,.result{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:0 3px 12px #0000000d}
+.hero{text-align:center}
+.hero h2,.result h2{color:#123c78;margin-bottom:2px;font-size:18px}
+.hero p{font-size:12px;color:#555}
+.progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
+.question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option:hover{background:#e8f1ff;border-color:#1769aa}
+.option input{margin-right:8px}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.secondary{background:#123c78}
+.btn.green{background:#0b8043}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#submitBtn{display:none}
+.result{text-align:center;display:none}
+.score{font-size:36px;font-weight:700;color:#0b8043;margin:8px 0 4px}
+.time-taken{font-size:14px;color:#123c78;font-weight:700;margin-bottom:8px}
+.review{text-align:left;margin-top:14px}
+.review-item{background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px;margin:6px 0;font-size:13px}
+.review-item.correct{border-left:4px solid #0b8043}
+.review-item.wrong{border-left:4px solid #d93025}
+footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-size:12px}
+@media(max-width:600px){nav a{font-size:12px;padding:4px 6px}.hero,.quiz-card,.result{padding:10px 12px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>English with S.K. Chaudhary</h1>
+<p>Bihar Board Class 12th English • Official Board Paper 2022 (Set-E) • Objective (61-100)</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="../../../../index.html#home">Home</a></li>
+<li><a href="../../../../index.html#prose">Prose</a></li>
+<li><a href="../../../../index.html#poetry">Poetry</a></li>
+<li><a href="../../../../index.html#grammar">Grammar</a></li>
+<li><a href="../../../../index.html#writing">Writing Skills</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>Board Exam 2022 Official Solutions (Q61 to Q100)</h2>
+<p>Class 12th English • Bihar Board Set-E • Literature Section | <b>40 Questions</b></p>
+</section>
+
+<section class="quiz-card" id="quizBox">
+<div class="quiz-top">
+<span id="counter">Question 61 of 100</span>
+<span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
+<span id="answered">Answered: 0</span>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="questionArea"></div>
+
+<div class="buttons">
+<button class="btn secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+<button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="btn green" id="submitBtn" onclick="submitQuiz()">Submit Test</button>
+</div>
+</section>
+
+<section class="result" id="resultBox">
+<h2>🎉 Test Completed!</h2>
+<div class="score" id="score"></div>
+<div class="time-taken" id="totalTime"></div>
+<p id="message"></p>
+<button class="btn" onclick="restartQuiz()" style="margin-top:10px">Try Again</button>
+<div class="review" id="review"></div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>English with S.K. Chaudhary</strong> • Target 90+</p>
+<p>© 2026 English with S.K. Chaudhary</p>
+</footer>
+
+<script>
+const questions=[
+["61. \"Someone was before me at my water-trough, And I, like a second comer, waiting.\" - is from", ["The Soldier", "Snake", "Fire Hymn", "An Epitaph"], 1],
+["62. Who wrote 'The Old Playhouse and other Poems'?", ["T.S. Eliot", "D. H. Lawrence", "Keki N. Daruwala", "Kamala Das"], 3],
+["63. Who has violated the tradition of religion by cremating?", ["D H Lawrence", "Kamala Das", "Keki N Daruwala", "T. S. Eliot"], 2],
+["64. The poet is ________ the snake.", ["in awe of", "afraid of", "running away from", "ready to hide from"], 1],
+["65. \"Observing all this, our ancestors dissuaded us from luxuries and pleasures.\" is from", ["A Pinch of Snuff", "The Earth", "Indian Civilization and Culture", "India Through a Traveller's Eyes"], 2],
+["66. \"The family is big and is constantly growing at a rather inconveniently fast pace\" is from", ["Bharat is My Home", "The Earth", "How Free is the Press", "I Have a Dream"], 0],
+["67. The narrator in \"A Pinch of Snuff\" was a/an ________ on probation.", ["Secretary", "Clerk", "Under Secretary", "Bank Officer"], 2],
+["68. Martin Luther King was the youngest person to receive the ________ in 1964.", ["Booker Prize", "Nobel Prize", "National Award for Innovation", "Ibrahim Prize for Achievement"], 1],
+["69. Standard British English speech came to be known as ________.", ["Received pronunciation", "Non-native language", "Second language", "Foreign language"], 0],
+["70. Walt Whitman was a/an ________.", ["Indian poet", "American poet", "British poet", "Russian poet"], 1],
+["71. The Romantic Revival is associated with ________.", ["John Dryden", "Alexander Pope", "William Wordsworth", "John Milton"], 2],
+["72. Bankim Chandra wrote Raj Mohan's Wife, the first Indian novel in English, in ________.", ["1857", "1914", "1864", "1847"], 2],
+["73. Even more important than the domestication of animals was the invention of ________.", ["reading", "writing", "agriculture", "religion"], 2],
+["74. \"Fancy a lad spending his time playing around like that with gourds !\" is from", ["The Earth", "A Marriage Proposal", "A Child is Born", "The Artist"], 3],
+["75. ________ women had given up going to international conferences.", ["Sudanese", "Indian", "Australian", "Pakistani"], 0],
+["76. Advertisers contribute to the ________ of the newspaper.", ["material", "news", "revenue", "gossip"], 2],
+["77. The writing system in Old English used the ________ alphabet.", ["Runic", "Kentish", "Celtic", "Saxon"], 0],
+["78. The Great Vowel Shift brought about a series of changes in the ________ of the English long vowels.", ["spelling", "pronunciation", "oral", "written"], 1],
+["79. The printing technology was introduced in England in the year ________.", ["1066", "1857", "1476", "1605"], 2],
+["80. English is a ________.", ["window to the world", "hindrance in progress", "blessing in disguise", "disgrace to the world"], 0],
+["81. The poet was ________ dressed when he saw the snake.", ["formally", "in Pyjamas", "in his nightsuit", "in his undergarments"], 1],
+["82. \"I celebrate myself, and sing myself, And what I assume you shall assume\" is from", ["Fire Hymn", "Snake", "Song of Myself", "To Autumn"], 2],
+["83. Whose white waterfall could bless Travellers in their last ________", ["distress", "sadness", "happiness", "tears"], 0],
+["84. \"To bend with apples the moss'd cottage-trees, ...\" is from", ["Song of Myself", "Ode to Autumn", "Snake", "Fire Hymn"], 1],
+["85. Bertrand Russell belonged to ________.", ["Germany", "Iceland", "Britain", "Ireland"], 2],
+["86. Every ________ lives in a perpetual precarious balance.", ["man", "book", "newspaper", "story"], 2],
+["87. How many hens were at first kept by Benjy?", ["about a dozen", "thirty six", "about two dozens", "fifty"], 0],
+["88. \"But believe that I shall make Speedier journeys, since I take ...\" - is from", ["Sweetest Love I Do Not Goe", "Fire Hymn", "Snake", "Song of Myself"], 0],
+["89. \"Deeply and painfully upset, they went to the man named Sanders, and told him how it was.\" is from", ["A Marriage Proposal", "A Child is Born", "The Earth", "How Free is the Press"], 2],
+["90. The book 'Come, My Beloved' has ________ background.", ["Indian", "Scandinavian", "African", "American"], 0],
+["91. Anton Chekov was a ________ by profession.", ["teacher", "soldier", "manager", "doctor"], 3],
+["92. For what purpose had Nanukaka come to Delhi ?", ["For paying the debt", "Attend Zamindar convention", "To take rest", "To see some Minister"], 3],
+["93. ________ was honoured with the order of Merit in 1953.", ["John Donne", "William Wordsworth", "Walter de la Mare", "Percy Bysshe Shelley"], 2],
+["94. A dust whom ________ bore, shaped, made aware,", ["Ireland", "India", "England", "Iceland"], 2],
+["95. \"Or when the milk is missing, or another Peke's been stifled, ...\" is from", ["Macavity - The Mystery Cat", "Snake", "Fire Hymn", "The Soldier"], 0],
+["96. \"I swore to save fire From the sin of.............\"", ["sin", "hatred", "forgetfulness", "blessings"], 2],
+["97. \"His brow is deeply lined with thoughts, ...\" Whose brow is the poet talking about?", ["Macavity's", "Himself", "His neighbour's", "His father's"], 0],
+["98. The images and praises of ________ run through the poem 'The Soldier'.", ["The USA", "Australia", "France", "England"], 3],
+["99. English belongs to the ancient ________ family of languages.", ["American-Indian", "Indo-European", "Indian-Australian", "Indo-Pakistani"], 1],
+["100. The latest period in the growth and development of the English language may be called the era of ________.", ["Ancient Englishes", "Old Englishes", "Middle Englishes", "New Englishes"], 3]
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let questionTimes=new Array(questions.length).fill(0);
+let timerInterval=null;
+let currentQSeconds=0;
+
+function startTimer(){
+clearInterval(timerInterval);
+currentQSeconds=questionTimes[current]||0;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+
+timerInterval=setInterval(()=>{
+currentQSeconds++;
+questionTimes[current]=currentQSeconds;
+document.getElementById("qTimer").textContent=`${currentQSeconds}s`;
+},1000);
+}
+
+function renderQuestion(){
+startTimer();
+const q=questions[current];
+const actualQNum=current+61;
+document.getElementById("counter").textContent=`Question ${actualQNum} of 100`;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+document.getElementById("progressBar").style.width=((current+1)/questions.length*100)+"%";
+
+let html=`<div class="question">${q[0]}</div>`;
+q[1].forEach((option,index)=>{
+html+=`<label class="option">
+<input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
+${String.fromCharCode(65+index)}) ${option}
+</label>`;
+});
+document.getElementById("questionArea").innerHTML=html;
+
+document.getElementById("prevBtn").disabled=current===0;
+document.getElementById("nextBtn").style.display=current===questions.length-1?"none":"inline-block";
+document.getElementById("submitBtn").style.display=current===questions.length-1?"inline-block":"none";
+}
+
+function selectAnswer(index){
+answers[current]=index;
+document.getElementById("answered").textContent=`Answered: ${answers.filter(x=>x!==null).length}`;
+}
+
+function nextQuestion(){
+if(current<questions.length-1){current++;renderQuestion();window.scrollTo(0,0);}
+}
+
+function previousQuestion(){
+if(current>0){current--;renderQuestion();window.scrollTo(0,0);}
+}
+
+function formatTime(seconds){
+const m=Math.floor(seconds/60);
+const s=seconds%60;
+if(m>0) return `${m} min ${s} sec`;
+return `${s} sec`;
+}
+
+function submitQuiz(){
+clearInterval(timerInterval);
+const unanswered=answers.filter(x=>x===null).length;
+if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+startTimer();
+return;
+}
+
+let score=0;
+questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
+
+const totalSeconds=questionTimes.reduce((a,b)=>a+b,0);
+const percentage=Math.round(score/questions.length*100);
+
+document.getElementById("quizBox").style.display="none";
+document.getElementById("resultBox").style.display="block";
+document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("totalTime").textContent=`⏱️ Total Time Taken: ${formatTime(totalSeconds)}`;
+
+document.getElementById("message").textContent=
+percentage>=80?"Excellent! 🎉 Keep up the great work.":
+percentage>=60?"Good work! 👍 Revise the chapter once more.":
+"Keep practicing. 📚 Read the chapter and try again.";
+
+let review="<h3>Answer Review</h3>";
+questions.forEach((q,i)=>{
+const correct=answers[i]===q[2];
+const yourAnswer=answers[i]===null?"Not answered":q[1][answers[i]];
+const timeSpent=questionTimes[i]||0;
+const actualQNum=i+61;
+review+=`<div class="review-item ${correct?"correct":"wrong"}">
+<b>Q${actualQNum}. ${q[0]}</b> <span style="font-size:12px;color:#666;">(Time: ${timeSpent}s)</span><br>
+Your answer: ${yourAnswer}<br>
+Correct answer: ${q[1][q[2]]}
+</div>`;
+});
+document.getElementById("review").innerHTML=review;
+window.scrollTo(0,0);
+}
+
+function restartQuiz(){
+current=0;
+answers=new Array(questions.length).fill(null);
+questionTimes=new Array(questions.length).fill(0);
+document.getElementById("resultBox").style.display="none";
+document.getElementById("quizBox").style.display="block";
+renderQuestion();
+window.scrollTo(0,0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
