@@ -18,9 +18,26 @@ nav a:hover{background:#e8f1ff}
 .hero,.quiz-card,.result{background:#fff;border-radius:18px;padding:24px;margin-bottom:25px;box-shadow:0 5px 20px #0000000d}
 .hero{text-align:center}.hero h2,.result h2{color:#123c78;margin-bottom:8px}
 .hero p{max-width:800px;margin:auto}
+
+/* Timer Badge Styling */
+.timer-badge {
+  display: inline-block;
+  background: #e8f1ff;
+  color: #123c78;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.time-spent-box {
+  font-size: 18px;
+  color: #123c78;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
 .progress{height:10px;background:#e5e9f0;border-radius:10px;overflow:hidden;margin:15px 0 20px}
 .progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
-.quiz-top{display:flex;justify-content:space-between;color:#123c78;font-weight:700;font-size:14px}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:14px}
 .question{font-size:20px;font-weight:700;color:#172033;margin:15px 0}
 .option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:10px;padding:12px 13px;margin:9px 0;cursor:pointer}
 .option:hover{background:#e8f1ff;border-color:#1769aa}
@@ -69,6 +86,7 @@ footer{background:#123c78;color:#fff;text-align:center;padding:25px 15px}
 <section class="quiz-card" id="quizBox">
 <div class="quiz-top">
 <span id="counter">Question 1 of 25</span>
+<span class="timer-badge">⏱️ Time Elapsed: <span id="timeElapsed">00:00</span></span>
 <span id="answered">Answered: 0</span>
 </div>
 
@@ -86,7 +104,8 @@ footer{background:#123c78;color:#fff;text-align:center;padding:25px 15px}
 <section class="result" id="resultBox">
 <h2>🎉 Test Completed!</h2>
 <div class="score" id="score"></div>
-<p id="message"></p>
+<div class="time-spent-box" id="timeSpent"></div>
+<p id="message" style="margin-top: 8px;"></p>
 <button class="btn" onclick="restartQuiz()" style="margin-top:12px">Try Again</button>
 <div class="review" id="review"></div>
 </section>
@@ -156,6 +175,22 @@ const questions=[
 let current=0;
 let answers=new Array(questions.length).fill(null);
 
+// Timer variables
+let secondsPassed = 0;
+let timerInterval = null;
+
+function startTimer(){
+  secondsPassed = 0;
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    secondsPassed++;
+    let mins = Math.floor(secondsPassed / 60);
+    let secs = secondsPassed % 60;
+    document.getElementById("timeElapsed").textContent = 
+      `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  }, 1000);
+}
+
 function renderQuestion(){
 const q=questions[current];
 document.getElementById("counter").textContent=`Question ${current+1} of ${questions.length}`;
@@ -193,14 +228,22 @@ function submitQuiz(){
 const unanswered=answers.filter(x=>x===null).length;
 if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) return;
 
+clearInterval(timerInterval); // Stop timer
+
 let score=0;
 questions.forEach((q,i)=>{if(answers[i]===q[2])score++;});
 
 const percentage=Math.round(score/questions.length*100);
 
+// Format time taken
+let mins = Math.floor(secondsPassed / 60);
+let secs = secondsPassed % 60;
+let timeTakenText = mins > 0 ? `${mins} minute(s) ${secs} second(s)` : `${secs} second(s)`;
+
 document.getElementById("quizBox").style.display="none";
 document.getElementById("resultBox").style.display="block";
 document.getElementById("score").textContent=`${score} / ${questions.length} (${percentage}%)`;
+document.getElementById("timeSpent").textContent=`⏱️ Total Time Taken: ${timeTakenText}`;
 
 document.getElementById("message").textContent=
 percentage>=80?"Excellent! 🎉 Keep up the great work.":
@@ -227,10 +270,13 @@ answers=new Array(questions.length).fill(null);
 document.getElementById("resultBox").style.display="none";
 document.getElementById("quizBox").style.display="block";
 renderQuestion();
+startTimer();
 window.scrollTo(0,0);
 }
 
 renderQuestion();
+startTimer();
 </script>
 </body>
 </html>
+
