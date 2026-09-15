@@ -6,7 +6,11 @@
     <loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/</loc>
   </url>
 
-  <!-- Prose -->
+  <!-- Prose Chapter Pages -->
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/prose/indian-civilization-and-culture.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/prose/bharat-is-my-home.html</loc></url>
+
+  <!-- Prose Quiz Pages -->
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/prose/chapter-01/PRAZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/prose/chapter-02/PRBZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/prose/chapter-03/PRCZ.html</loc></url>
@@ -19,7 +23,7 @@
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/prose/chapter-10/PRJZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/prose/chapter-11/PRKZ.html</loc></url>
 
-  <!-- Poetry -->
+  <!-- Poetry Quiz Pages -->
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/poetry/chapter-01/POAZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/poetry/chapter-02/POBZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/poetry/chapter-03/POCZ.html</loc></url>
@@ -31,7 +35,7 @@
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/poetry/chapter-09/POIZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/poetry/chapter-10/POJZ.html</loc></url>
 
-  <!-- Story of English -->
+  <!-- Story of English Quiz Pages -->
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/story-of-english/chapter-01/STAZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/story-of-english/chapter-02/STBZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/story-of-english/chapter-03/STCZ.html</loc></url>
@@ -44,7 +48,7 @@
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/story-of-english/chapter-10/STJZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/story-of-english/chapter-11/STKZ.html</loc></url>
 
-  <!-- Grammar -->
+  <!-- Grammar Quiz Pages -->
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/grammar/chapter-01/GRAZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/grammar/chapter-02/GRBZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/grammar/chapter-03/GRCZ.html</loc></url>
@@ -57,10 +61,31 @@
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/grammar/chapter-10/GRJZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/grammar/chapter-11/GRKZ.html</loc></url>
 
-  <!-- Writing Skills -->
+  <!-- Writing Skills Quiz Pages -->
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/writing-skills/chapter-01/WRAZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/writing-skills/chapter-02/WRBZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/writing-skills/chapter-03/WRCZ.html</loc></url>
   <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/writing-skills/chapter-04/WRDZ.html</loc></url>
+
+  <!-- Previous Year Questions -->
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/pdf/previous-year-questions/2026/PYAW.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/pdf/previous-year-questions/2026/PYAX.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/previous-year-questions/2026/PYAY.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/previous-year-questions/2026/PYAZ.html</loc></url>
+
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/pdf/previous-year-questions/2025/PYBW.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/pdf/previous-year-questions/2025/PYBX.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/previous-year-questions/2025/PYBY.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/previous-year-questions/2025/PYBZ.html</loc></url>
+
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/pdf/previous-year-questions/2024/PYCW.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/pdf/previous-year-questions/2024/PYCX.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/previous-year-questions/2024/PYCY.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/previous-year-questions/2024/PYCZ.html</loc></url>
+
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/pdf/previous-year-questions/2023/PYDW.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/pdf/previous-year-questions/2023/PYDX.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/previous-year-questions/2023/PYDY.html</loc></url>
+  <url><loc>https://englishwithskchaudhary.github.io/englishwithskchaudhary/quiz/previous-year-questions/2023/PYDZ.html</loc></url>
 
 </urlset>
