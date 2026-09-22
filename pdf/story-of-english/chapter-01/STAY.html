@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 12 English Semester Paper Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f6f9; color: #333; }
+        .quiz-container { max-width: 800px; margin: auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #1a5276; margin-bottom: 5px; }
+        h3 { text-align: center; color: #555; margin-top: 0; }
+        .question { margin-bottom: 20px; padding: 15px; border-bottom: 1px solid #ddd; }
+        .question p { font-weight: bold; font-size: 16px; margin-bottom: 10px; }
+        .options label { display: block; margin: 6px 0; cursor: pointer; padding: 8px; border-radius: 5px; background: #f9f9f9; border: 1px solid #eee; }
+        .options label:hover { background: #eef5fc; }
+        button { display: block; width: 100%; padding: 12px; background: #27ae60; color: white; border: none; font-size: 18px; border-radius: 5px; cursor: pointer; margin-top: 20px; }
+        button:hover { background: #219150; }
+        #result { font-size: 20px; font-weight: bold; text-align: center; margin-top: 20px; padding: 15px; background: #e8f8f5; border: 1px solid #a3e4d7; border-radius: 5px; display: none; }
+        .correct { background-color: #d4edda !important; border-color: #c3e6cb !important; }
+        .wrong { background-color: #f8d7da !important; border-color: #f5c6cb !important; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>CLIMAX TEACHING CENTRE</h1>
+    <h3>CLASS-12th ENGLISH SEMESTER PAPER 2026</h3>
+    <form id="quizForm">
+        <div id="questionsContainer"></div>
+        <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+    <div id="result"></div>
+    <button type="button" id="restartBtn" onclick="restartQuiz()" style="display:none; background:#2980b9;">Restart Quiz</button>
+</div>
+
+<script>
+const quizData = [
+    { q: "1. Enslavement is a crime against ........................ humanity. (Choose the correct option)", options: ["(A) a", "(B) an", "(C) the", "(D) no article"], ans: 3 },
+    { q: "2. Choose the correctly spelt word:", options: ["(A) Ocupation", "(B) Engrev", "(C) Maddening", "(D) Beleif"], ans: 2 },
+    { q: "3. Choose the correct synonym of 'Cling':", options: ["(A) Stick", "(B) Shun", "(C) Tempt", "(D) Spread"], ans: 0 },
+    { q: "4. Choose the correct sentence:", options: ["(A) As long there is rain, we stay inside.", "(B) As long as it rains, we stay inside.", "(C) As long that it rains, we stay inside.", "(D) As long it is raining, we stay inside."], ans: 1 },
+    { q: "5. Choose the mis-spelt word:", options: ["(A) Elevate", "(B) Bartar", "(C) Propagate", "(D) Fibre"], ans: 1 },
+    { q: "6. Choose the correct meaning of \"A fair-weather friend\":", options: ["(A) A person who befriends people living in hill stations", "(B) A person who is loyal only when things are going well", "(C) A person who supports his friends unconditionally", "(D) A person who feels lonely during the winters"], ans: 1 },
+    { q: "7. There is ........................ hope left for his recovery. (Choose the correct option)", options: ["(A) few", "(B) little", "(C) many", "(D) several"], ans: 1 },
+    { q: "8. She can play the piano, ........................ ? (Choose the correct option)", options: ["(A) can she", "(B) can't she", "(C) does she", "(D) doesn't she"], ans: 1 },
+    { q: "9. Choose the sentence that means the same as \"There is no rose without a thorn\".", options: ["(A) Roses do not have thorns", "(B) Every rose has a thorn", "(C) Thorns are better than roses", "(D) No one likes roses with thorns"], ans: 1 },
+    { q: "10. He ........................ a letter to his friend yesterday. (Choose the correct option)", options: ["(A) send", "(B) sent", "(C) has send", "(D) have sent"], ans: 1 },
+    { q: "11. ........................ United Nations protects fundamental human rights globally. (Choose the correct option)", options: ["(A) A", "(B) An", "(C) The", "(D) No article"], ans: 2 },
+    { q: "12. Choose the correct sentence:", options: ["(A) The furniture in the room are new", "(B) The news are completely true", "(C) The scissors is very sharp", "(D) The luggage is heavy"], ans: 3 },
+    { q: "13. Choose the correct meaning of: \"Hit the nail on the head.\"", options: ["(A) To accidentally hurt oneself", "(B) To do a lot of manual labour", "(C) To describe exactly what is causing a situation", "(D) To build something from scratch"], ans: 2 },
+    { q: "14. We only have ........................ time before the train departs. (Choose the correct option)", options: ["(A) few", "(B) a little", "(C) many", "(D) any"], ans: 1 },
+    { q: "15. They haven't finished their work yet, ........................ ? (Choose the correct option)", options: ["(A) have they", "(B) haven't they", "(C) did they", "(D) do they"], ans: 0 },
+    { q: "16. Choose the sentence that means the same as: \"Hardly anyone attended the meeting.\"", options: ["(A) Everyone attended the meeting", "(B) Many people attended the meeting", "(C) Very few people attended the meeting", "(D) Nobody came to the meeting at all"], ans: 2 },
+    { q: "17. They ........................ in this city for five years now. (Choose the correct option)", options: ["(A) live", "(B) lives", "(C) have lived", "(D) had lived"], ans: 2 },
+    { q: "18. Choose the correct sentence:", options: ["(A) Statistics are a difficult subject", "(B) The cattle was grazing in the field", "(C) The police are investigating the case", "(D) All the equipment are old"], ans: 2 },
+    { q: "19. Smoke pollutes the air. (Choose the correct passive voice)", options: ["(A) Air had been polluted by smoke", "(B) Air was being polluted by smoke", "(C) Air is polluted by smoke", "(D) Air has been polluted by smoke"], ans: 2 },
+    { q: "20. My watch was repaired. (Choose the correct active voice)", options: ["(A) My watch was being repaired", "(B) I repair the watch", "(C) My watch has been repaired", "(D) Someone repaired my watch"], ans: 3 },
+    { q: "21. She had baked the cake. (Choose the correct passive voice)", options: ["(A) The cake is being baked by her", "(B) The cake had been baked by her", "(C) The cake has been baked by her", "(D) The cake was being baked by her"], ans: 1 },
+    { q: "22. The window has been broken by Sam. (Choose the correct active voice)", options: ["(A) Sam has broken the window", "(B) The window was broken by Sam", "(C) Sam broke the window", "(D) The window was being broken by Sam"], ans: 0 },
+    { q: "23. She said to him, \"Are you tired?\" (Choose the correct indirect narration)", options: ["(A) She asked him if she was tired", "(B) She asked him if he is tired", "(C) She asked him if he was tired", "(D) She asked him about his health"], ans: 2 },
+    { q: "24. The activist asked the citizens not to waste water. (Choose the correct direct narration)", options: ["(A) The activist said to the citizens, \"Waste some water.\"", "(B) The activist informed the citizens, \"Water is wastage.\"", "(C) The activist said to the citizens, \"Don't waste water.\"", "(D) The activist instructed the citizens, \"Don't stop water wastage.\""], ans: 2 },
+    { q: "25. \"When will the war end?\" The child wondered. (Choose the correct indirect narration)", options: ["(A) The child thought that the war would soon end", "(B) The child enquired if the war would ever end", "(C) The child wondered when the war would end", "(D) The child was sure that the war would never end"], ans: 2 },
+    { q: "26. The elves exclaimed with joy that the gold was theirs. (Choose the correct direct narration)", options: ["(A) The elves said, \"Hurrah! The gold is ours.\"", "(B) The elves said, \"Alas! The gold is ours.\"", "(C) The elves said, \"O that the gold would have been ours.\"", "(D) The elves said, \"Hurrah! We lost the gold.\""], ans: 0 },
+    { q: "27. Choose the correct synonym of 'Peril':", options: ["(A) Certainty", "(B) Security", "(C) Protection", "(D) Threat"], ans: 3 },
+    { q: "28. The weary travellers rested ........................ a greenwood tree. (Choose the correct option)", options: ["(A) around", "(B) over", "(C) under", "(D) behind"], ans: 2 },
+    { q: "29. Go ........................ with your work. (Choose the correct option)", options: ["(A) out", "(B) in", "(C) off", "(D) on"], ans: 3 },
+    { q: "30. Identify the correctly punctuated sentence:", options: ["(A) i want to meet dr. gupta?", "(B) I want to meet Dr. gupta!", "(C) I want to meet Dr. Gupta.", "(D) I want to meet Dr. Gupta ?"], ans: 2 },
+    { q: "31. Choose the correctly spelt word:", options: ["(A) Apalling", "(B) Halowed", "(C) Saered", "(D) Decree"], ans: 3 },
+    { q: "32. Choose the mis-spelt word:", options: ["(A) Previous", "(B) Mistake", "(C) Auspicious", "(D) Repititive"], ans: 3 },
+    { q: "33. Choose the correct antonym of 'Cease':", options: ["(A) Halt", "(B) Begin", "(C) Discontinue", "(D) Quit"], ans: 1 },
+    { q: "34. We shall leave ........................ you are ready. (Choose the correct option)", options: ["(A) whether", "(B) since", "(C) therefore", "(D) though"], ans: 1 },
+    { q: "35. He is over sixty, ........................ he looks remarkably energetic. (Choose the correct option)", options: ["(A) although", "(B) still", "(C) while", "(D) so"], ans: 1 },
+    { q: "36. Choose the incorrect sentence:", options: ["(A) Sweet are the uses of adversity", "(B) Your binoculars are very dirty", "(C) Slow and steady win the race", "(D) More refugees than just one were saved today"], ans: 2 },
+    { q: "37. ........................ the alliance was fragile, the nations signed the peace treaty. (Choose the correct option)", options: ["(A) Whether", "(B) Since", "(C) Therefore", "(D) Though"], ans: 3 },
+    { q: "38. ........................ the wolf disguised his voice, the clever boy recognized him instantly. (Choose the correct option)", options: ["(A) Still", "(B) Although", "(C) While", "(D) So"], ans: 1 },
+    { q: "39. The volunteers will continue to deliver medical supplies ........................ the borders remain closed. (Choose the correct option)", options: ["(A) as long as", "(B) whether", "(C) even", "(D) as much as"], ans: 0 },
+    { q: "40. Choose the sentence that means the same as: \"The wise owl knows every hidden path in the woods.\"", options: ["(A) No hidden path in the woods is unknown to the wise owl.", "(B) Every owl knows which hidden path in the woods to take.", "(C) Nobody in the woods knows the wise owl's hidden paths.", "(D) The wise owl knows nobody who walks on the hidden paths."], ans: 0 },
+    { q: "41. Choose the incorrect sentence:", options: ["(A) My pajamas are torn", "(B) His spectacles are covered in thick smog", "(C) Every tree and every flower are dying from the chemical leak", "(D) More cities than one were affected by the toxic waste"], ans: 2 },
+    { q: "42. Choose the correct antonym of 'Reprove':", options: ["(A) Approve", "(B) Reproach", "(C) Scold", "(D) Chide"], ans: 0 },
+    { q: "43. The brave frog leaped ........................ the deep well. (Choose the incorrect option)", options: ["(A) in", "(B) across", "(C) into", "(D) under"], ans: 0 },
+    { q: "44. The lion was highly pleased ........................ the mouse for saving his life. (Choose the correct option)", options: ["(A) on", "(B) for", "(C) in", "(D) with"], ans: 3 },
+    { q: "45. Many marine species are highly sensitive ........................ changes in water temperature. (Choose the correct option)", options: ["(A) against", "(B) to", "(C) with", "(D) for"], ans: 1 },
+    { q: "46. A toxic waste dumping ground was established right ........................ the clean river. (Choose the correct option)", options: ["(A) under", "(B) between", "(C) on", "(D) beside"], ans: 3 },
+    { q: "47. ........................ the beast was terrifying, yet he possessed a kind heart. (Choose the correct option)", options: ["(A) Both", "(B) Although", "(C) Because", "(D) Since"], ans: 1 },
+    { q: "48. Not only the government ........................ the common citizens also must act to reduce plastic waste. (Choose the correct option)", options: ["(A) but", "(B) and", "(C) along with", "(D) but also"], ans: 0 },
+    { q: "49. Elena is the volunteer ........................ works tirelessly at the border camp. (Choose the correct option)", options: ["(A) whom", "(B) who", "(C) which", "(D) that"], ans: 1 },
+    { q: "50. Sadly, many vulnerable people in the besieged city died ........................ starvation. (Choose the correct option)", options: ["(A) with", "(B) from", "(C) of", "(D) for"], ans: 2 },
+    { q: "51. The chief weapons used by Mahatma Gandhi against the British rule in India were", options: ["(A) armed uprising and rebellion", "(B) guerrilla warfare", "(C) truth and non-violence", "(D) underground revolutionary sabotage"], ans: 2 },
+    { q: "52. Gandhi compared the mind to a", options: ["(A) Clever crow", "(B) Thirsty deer", "(C) Proud peacock", "(D) Restless bird"], ans: 3 },
+    { q: "53. The people of Europe learn their lessons from the writings of the men of", options: ["(A) Greece and Rome", "(B) India and Tibet", "(C) China and Japan", "(D) Australia and New Zealand"], ans: 0 },
+    { q: "54. Dr. Zakir Hussain entered the office of the President in a spirit of", options: ["(A) defiance", "(B) anxiety and urgency", "(C) prayerful humility and total dedication", "(D) weary cynicism"], ans: 2 },
+    { q: "55. 'Bharat is My Home' is an extract from a speech Dr. Zakir Hussain delivered in", options: ["(A) 1897", "(B) 1947", "(C) 1950", "(D) 1967"], ans: 3 },
+    { q: "56. Dr. Zakir Hussain was an eminent", options: ["(A) Scientist", "(B) Philosopher", "(C) Educationist", "(D) Athlete"], ans: 2 },
+    { q: "57. 'A Pinch of Snuff' is taken from which of the following works?", options: ["(A) Distant Drum", "(B) The Princes", "(C) A Bend in the Ganges", "(D) Contemporary Indian Short Stories in English"], ans: 3 },
+    { q: "58. Nanukaka's pugree was fashioned from", options: ["(A) off-white cotton", "(B) red silk", "(C) hemp", "(D) bamboo"], ans: 1 },
+    { q: "59. The narrator of the story 'A Pinch of Snuff' was an", options: ["(A) M.L.A.", "(B) M.P.", "(C) Accountant", "(D) Under-Secretary"], ans: 3 },
+    { q: "60. Which of the following is not a work of Martin Luther King, Jr. ?", options: ["(A) Strength to Love", "(B) Blades of Grass", "(C) Why We Can't Wait", "(D) Where do We Go from Here: Chaos or Community?"], ans: 1 },
+    { q: "61. 'I Have a Dream' is", options: ["(A) a speech", "(B) an autobiography", "(C) a biography", "(D) a news article"], ans: 0 },
+    { q: "62. Martin Luther King, Jr. was assassinated in", options: ["(A) 1952", "(B) 1929", "(C) 1968", "(D) 1964"], ans: 2 },
+    { q: "63. Bertrand Russell was a ........................ philosopher. (Choose the correct option)", options: ["(A) French", "(B) Italian", "(C) British", "(D) German"], ans: 2 },
+    { q: "64. Russell was awarded Nobel Prize in", options: ["(A) Medicine", "(B) Peace", "(C) Economics", "(D) Literature"], ans: 3 },
+    { q: "65. Which of the following is not a work of Bertrand Russell?", options: ["(A) Roads to Freedom", "(B) Conquest of Happiness", "(C) Marriage and Morals", "(D) The Discovery of India"], ans: 3 },
+    { q: "66. John Donne was born in", options: ["(A) Edinburgh", "(B) Cardiff", "(C) London", "(D) Belfast"], ans: 2 },
+    { q: "67. Which of the following statements is not true about John Donne ?", options: ["(A) He was born into a family of traders", "(B) He studied law and theology", "(C) He participated in two Naval expeditions", "(D) He was never imprisoned"], ans: 3 },
+    { q: "68. Which of the following is a popular title used for Walt Whitman ?", options: ["(A) People's Poet", "(B) Bard of Avon", "(C) High Priest of Nature", "(D) Poet's Poet"], ans: 0 },
+    { q: "69. Whitman's 'Leaves of Grass' is known for its", options: ["(A) free rhythms and lack of rhyme", "(B) epic similes", "(C) metaphysical conceits", "(D) parody and satire"], ans: 0 },
+    { q: "70. W. H. Auden won the Pulitzer Prize in 1948 for", options: ["(A) The Shield of Achilles", "(B) The Dance of Death", "(C) The Age of Anxiety", "(D) Look Stranger"], ans: 2 },
+    { q: "71. 'Now the Leaves are Falling Fast' contains", options: ["(A) Four stanzas", "(B) Five stanzas", "(C) Seven stanzas", "(D) Nine stanzas"], ans: 1 },
+    { q: "72. Keats' ambition to become a poet was fired by", options: ["(A) Chaucer's The Canterbury Tales", "(B) Shakespeare's Hamlet", "(C) Spenser's Faerie Queene", "(D) Virgil's Aeneid"], ans: 2 },
+    { q: "73. How many lines are there in each stanza of 'Ode to Autumn'?", options: ["(A) 10 lines", "(B) 12 lines", "(C) 11 lines", "(D) 7 lines"], ans: 2 },
+    { q: "74. The lady in 'An Epitaph' is described as", options: ["(A) Light of step and heart", "(B) Burdened by care", "(C) Dark of mind", "(D) Foot-weary and faint-hearted"], ans: 0 },
+    { q: "75. Walter de la Mare lost his father at the age of", options: ["(A) five", "(B) seven", "(C) four", "(D) nine"], ans: 2 },
+    { q: "76. The two major influences on English language in the Old English period were", options: ["(A) Latin and Scandinavian", "(B) French and German", "(C) Portuguese and Italian", "(D) Dutch and Spanish"], ans: 0 },
+    { q: "77. Which of the following works does not belong to the Middle English period?", options: ["(A) Piers the Plowman", "(B) Beowulf", "(C) Confessio Amantis", "(D) Vox Clamantis"], ans: 1 },
+    { q: "78. The book Practical Grammar of the English Tongue is written by", options: ["(A) James Buchanan", "(B) Robert Lowth", "(C) Joseph Priestly", "(D) William Loughton"], ans: 3 },
+    { q: "79. Which of the following works is not written by Shakespeare?", options: ["(A) King Lear", "(B) Dr. Faustus", "(C) Macbeth", "(D) Othello"], ans: 1 },
+    { q: "80. Middle English had ........................ dialects. (Choose the correct option)", options: ["(A) four", "(B) three", "(C) five", "(D) seven"], ans: 2 }
+];
+
+function loadQuiz() {
+    const container = document.getElementById("questionsContainer");
+    container.innerHTML = "";
+    quizData.forEach((item, index) => {
+        let qHtml = `<div class="question" id="q${index}">
+            <p>${item.q}</p>
+            <div class="options">`;
+        item.options.forEach((opt, optIndex) => {
+            qHtml += `<label id="label_${index}_${optIndex}">
+                <input type="radio" name="question_${index}" value="${optIndex}"> ${opt}
+            </label>`;
+        });
+        qHtml += `</div></div>`;
+        container.innerHTML += qHtml;
+    });
+}
+
+function submitQuiz() {
+    let score = 0;
+    quizData.forEach((item, index) => {
+        const selected = document.querySelector(`input[name="question_${index}"]:checked`);
+        const correctLabel = document.getElementById(`label_${index}_${item.ans}`);
+        
+        if (selected) {
+            const userAns = parseInt(selected.value);
+            if (userAns === item.ans) {
+                score++;
+                correctLabel.classList.add("correct");
+            } else {
+                document.getElementById(`label_${index}_${userAns}`).classList.add("wrong");
+                correctLabel.classList.add("correct");
+            }
+        } else {
+            correctLabel.classList.add("correct");
+        }
+    });
+
+    const resultDiv = document.getElementById("result");
+    resultDiv.style.display = "block";
+    resultDiv.innerHTML = `You scored ${score} out of ${quizData.length} (${((score/quizData.length)*100).toFixed(2)}%)`;
+    document.getElementById("restartBtn").style.display = "block";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function restartQuiz() {
+    document.getElementById("quizForm").reset();
+    document.getElementById("result").style.display = "none";
+    document.getElementById("restartBtn").style.display = "none";
+    loadQuiz();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+loadQuiz();
+</script>
+
+</body>
+</html>
