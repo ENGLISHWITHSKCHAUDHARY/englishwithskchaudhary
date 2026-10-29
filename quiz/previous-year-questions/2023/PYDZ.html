@@ -21,7 +21,7 @@ nav a:hover{background:#e8f1ff}
 .hero p{font-size:12px;color:#555}
 .progress{height:6px;background:#e5e9f0;border-radius:6px;overflow:hidden;margin:8px 0 12px}
 .progress-bar{height:100%;width:0;background:#1769aa;transition:.3s}
-.quiz-top{display:flex;justify-space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
 .timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
 .question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
 .option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
@@ -104,46 +104,46 @@ footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-si
 
 <script>
 const questions=[
-{qNo: 61, q: "'The Soldier' is a........... poem.", opts: ["nature", "patriotic", "love", "happy"], ans: 1},
-{qNo: 62, q: "Macavity is called", opts: ["the Hidden Paw", "the Mysterious Paw", "the Exposed Paw", "the Naughty Paw"], ans: 0},
-{qNo: 63, q: "The........forgets its dead.", opts: ["man", "animal", "fire", "wind"], ans: 2},
-{qNo: 64, q: "Who is the speaker in the poem 'Snake'?", opts: ["Donne", "Whitman", "Keats", "Lawrence"], ans: 3},
-{qNo: 65, q: "Bertrand Russell belonged to.............", opts: ["Italy", "Germany", "Britain", "America"], ans: 2},
-{qNo: 66, q: "\"I Have a Dream\" is part of a...............", opts: ["drama", "novel", "poem", "speech"], ans: 3},
-{qNo: 67, q: "Manohar Malgaonkar's story is full of wit and..........", opts: ["Humour", "Tragedy", "Adventure", "Irony"], ans: 2},
+{qNo: 61, q: "'The Soldier' is a........... poem.", opts: ["nature", "love", "patriotic", "happy"], ans: 2},
+{qNo: 62, q: "Macavity is called", opts: ["the Mysterious Paw", "the Hidden Paw", "the Exposed Paw", "the Naughty Paw"], ans: 1},
+{qNo: 63, q: "The........forgets its dead.", opts: ["man", "animal", "wind", "fire"], ans: 3},
+{qNo: 64, q: "Who is the speaker in the poem 'Snake'?", opts: ["Donne", "Keats", "Whitman", "Lawrence"], ans: 3},
+{qNo: 65, q: "Bertrand Russell belonged to.............", opts: ["Britain", "Italy", "Germany", "America"], ans: 0},
+{qNo: 66, q: "\"I Have a Dream\" is part of a...............", opts: ["drama", "novel", "speech", "poem"], ans: 2},
+{qNo: 67, q: "Manohar Malgaonkar's story is full of wit and..........", opts: ["Humour", "Tragedy", "Adventure", "Irony"], ans: 0},
 {qNo: 68, q: "Who will make quicker journey than the sun?", opts: ["John Donne", "Walt Whitman", "W.H. Auden", "John Keats"], ans: 0},
-{qNo: 69, q: "\"There is a house now far away where once I received love\" is from", opts: ["Song of Myself", "Ode to Autumn", "My Grandmother's House", "Snake"], ans: 2},
+{qNo: 69, q: "\"There is a house now far away where once I received love\" is from", opts: ["Song of Myself", "My Grandmother's House", "Ode to Autumn", "Snake"], ans: 1},
 {qNo: 70, q: "The term 'concealed' in \"The Soldier\" stands for", opts: ["hidden", "disappeared", "absent", "mysterious"], ans: 0},
 {qNo: 71, q: "According to Eliot, Macavity is the.............. of crime.", opts: ["Hitler", "Napoleon", "Alexander", "Osama"], ans: 1},
-{qNo: 72, q: "For Auden, poetry was a", opts: ["light game", "interesting game", "serious game", "troublesome game"], ans: 2},
-{qNo: 73, q: "In no civilization have all men attained..........", opts: ["enmity", "jealousy", "perfection", "education"], ans: 2},
-{qNo: 74, q: "Dr. Zakir Hussain was an eminent.......", opts: ["politician", "philosopher", "educationist", "scientist"], ans: 2},
-{qNo: 75, q: "Nanukaka managed to travel in 2nd class on a ticket of", opts: ["1st class", "General class", "Sleeper class", "Third class"], ans: 3},
+{qNo: 72, q: "For Auden, poetry was a", opts: ["light game", "interesting game", "troublesome game", "serious game"], ans: 3},
+{qNo: 73, q: "In no civilization have all men attained..........", opts: ["enmity", "jealousy", "education", "perfection"], ans: 3},
+{qNo: 74, q: "Dr. Zakir Hussain was an eminent.......", opts: ["politician", "educationist", "philosopher", "scientist"], ans: 1},
+{qNo: 75, q: "Nanukaka managed to travel in 2nd class on a ticket of", opts: ["1st class", "General class", "Third class", "Sleeper class"], ans: 2},
 {qNo: 76, q: "My children will not be judged by the.................of their skin.", opts: ["colour", "food habits", "education", "culture"], ans: 0},
 {qNo: 77, q: "Who is considered the greatest English dramatist?", opts: ["Geoffrey Chaucer", "Wycliff", "William Langland", "Shakespeare"], ans: 3},
 {qNo: 78, q: "Which is the first Indian Novel in English?", opts: ["Rajmohan's Wife", "Raja Harischandra", "Mahabharata", "The English Teacher"], ans: 0},
-{qNo: 79, q: "The Great Vowel Shift took place during..........", opts: ["Modern English", "Old English", "Middle English", "Post-modern English"], ans: 2},
-{qNo: 80, q: "\"The Romantic Revival\" is often associated with...", opts: ["John Dryden", "Alexander Pope", "William Wordsworth", "John Milton"], ans: 2},
+{qNo: 79, q: "The Great Vowel Shift took place during..........", opts: ["Modern English", "Middle English", "Old English", "Post-modern English"], ans: 1},
+{qNo: 80, q: "\"The Romantic Revival\" is often associated with...", opts: ["John Dryden", "Alexander Pope", "John Milton", "William Wordsworth"], ans: 3},
 {qNo: 81, q: "John Donne thinks that........ is certain.", opts: ["death", "life", "work", "walking"], ans: 0},
-{qNo: 82, q: "Keats was..........poet.", opts: ["Romantic", "Victorian", "Modern", "Augustan"], ans: 0},
-{qNo: 83, q: "What has enriched the vocabulary of English", opts: ["Giving", "Borrowing", "Withdrawing", "Depositing"], ans: 1},
-{qNo: 84, q: "Who wrote 'Mac Flecknoe'?", opts: ["John Dryden", "John Keats", "Charles Dickens", "Jane Austen"], ans: 0},
-{qNo: 85, q: "Benjy left the school at.........", opts: ["twenty", "twelve", "fourteen", "sixteen"], ans: 2},
+{qNo: 82, q: "Keats was..........poet.", opts: ["Victorian", "Romantic", "Modern", "Augustan"], ans: 1},
+{qNo: 83, q: "What has enriched the vocabulary of English", opts: ["Giving", "Withdrawing", "Borrowing", "Depositing"], ans: 2},
+{qNo: 84, q: "Who wrote 'Mac Flecknoe'?", opts: ["John Keats", "John Dryden", "Charles Dickens", "Jane Austen"], ans: 1},
+{qNo: 85, q: "Benjy left the school at.........", opts: ["twenty", "twelve", "sixteen", "fourteen"], ans: 3},
 {qNo: 86, q: "Buck had visited India.....", opts: ["to see the Taj Mahal", "to see the Jama Masjid", "to meet Gandhiji", "to see and listen to two groups of Indian people"], ans: 3},
-{qNo: 87, q: "Lomov asked for.............hand in marriage.", opts: ["Matalia's", "Satalia's", "Natalia's", "Ratalia's"], ans: 2},
-{qNo: 88, q: "India's glory is that it is...........", opts: ["movable", "immovable", "ignorant", "uncivilized"], ans: 1},
-{qNo: 89, q: "........was a dominant influence on Middle English.", opts: ["Latin", "Sanskrit", "Scandinavian", "Greek"], ans: 2},
-{qNo: 90, q: "The literature of the Anglo-Saxons is of...........types.", opts: ["Political", "Religious", "Comedy", "Sentimental"], ans: 1},
-{qNo: 91, q: "The history of English began with the coming of the........from Europe to mainland Britain.", opts: ["Anglo-Saxons", "French tribes", "Indian tribes", "American tribes"], ans: 0},
-{qNo: 92, q: "One who writes a drama is called.........", opts: ["Essayist", "Novelist", "Comedian", "Playwright"], ans: 3},
-{qNo: 93, q: "\"And what I assume you shall assume\" is taken from.......", opts: ["Song of Myself", "An Epitaph", "The Soldier", "Fire-Hymn"], ans: 0},
-{qNo: 94, q: "According to Auden, human life is no better than........", opts: ["dream", "death", "journey", "sleep"], ans: 1},
-{qNo: 95, q: "In..............new leaves and fruits come out on trees.", opts: ["Spring", "Autumn", "Summer", "Winter"], ans: 1},
-{qNo: 96, q: "\"And when I crumble, who will remember\" is written by", opts: ["John Keats", "John Donne", "Rupert Brooke", "Walter de la Mare"], ans: 3},
-{qNo: 97, q: "The two kinds of ideas which contributed most to the mankind were knowledge and technique and..", opts: ["moral and values", "morals and politics", "moral and inventions", "moral and wisdom"], ans: 1},
-{qNo: 98, q: "One day, Seibei was caught red-handed by his..............teacher", opts: ["Hindi", "Mathematics", "Ethics", "Science"], ans: 2},
-{qNo: 99, q: "In a traditional society, a woman is known as the mother of her first born child, but the west regards it as...", opts: ["good", "beneficial", "outrageous", "funny"], ans: 2},
-{qNo: 100, q: "The state is the.............", opts: ["master of the people", "servant of the people", "exploiter of the people", "promoter of the people"], ans: 1}
+{qNo: 87, q: "Lomov asked for.............hand in marriage.", opts: ["Matalia's", "Natalia's", "Satalia's", "Ratalia's"], ans: 1},
+{qNo: 88, q: "India's glory is that it is...........", opts: ["movable", "ignorant", "immovable", "uncivilized"], ans: 2},
+{qNo: 89, q:........was a dominant influence on Middle English.", opts: ["Latin", "Sanskrit", "Greek", "Scandinavian"], ans: 3},
+{qNo: 90, q: "The literature of the Anglo-Saxons is of...........types.", opts: ["Political", "Comedy", "Religious", "Sentimental"], ans: 2},
+{qNo: 91, q: "The history of English began with the coming of the........from Europe to mainland Britain.", opts: ["French tribes", "Anglo-Saxons", "Indian tribes", "American tribes"], ans: 1},
+{qNo: 92, q: "One who writes a drama is called.........", opts: ["Essayist", "Novelist", "Playwright", "Comedian"], ans: 2},
+{qNo: 93, q: "\"And what I assume you shall assume\" is taken from.......", opts: ["An Epitaph", "Song of Myself", "The Soldier", "Fire-Hymn"], ans: 1},
+{qNo: 94, q: "According to Auden, human life is no better than........", opts: ["dream", "journey", "sleep", "death"], ans: 3},
+{qNo: 95, q: "In..............new leaves and fruits come out on trees.", opts: ["Spring", "Summer", "Autumn", "Winter"], ans: 2},
+{qNo: 96, q: "\"And when I crumble, who will remember\" is written by", opts: ["John Keats", "John Donne", "Walter de la Mare", "Rupert Brooke"], ans: 2},
+{qNo: 97, q: "The two kinds of ideas which contributed most to the mankind were knowledge and technique and..", opts: ["moral and values", "moral and inventions", "morals and politics", "moral and wisdom"], ans: 2},
+{qNo: 98, q: "One day, Seibei was caught red-handed by his..............teacher", opts: ["Hindi", "Ethics", "Mathematics", "Science"], ans: 1},
+{qNo: 99, q: "In a traditional society, a woman is known as the mother of her first born child, but the west regards it as...", opts: ["good", "beneficial", "funny", "outrageous"], ans: 3},
+{qNo: 100, q: "The state is the.............", opts: ["master of the people", "exploiter of the people", "servant of the people", "promoter of the people"], ans: 2}
 ];
 
 let current=0;
@@ -175,7 +175,7 @@ let html=`<div class="question">Q${item.qNo}. ${item.q}</div>`;
 item.opts.forEach((option,index)=>{
 html+=`<label class="option">
 <input type="radio" name="answer" ${answers[current]===index?"checked":""} onchange="selectAnswer(${index})">
-${String.fromCharCode(97+index)}) ${option}
+${String.fromCharCode(65+index)}) ${option}
 </label>`;
 });
 document.getElementById("questionArea").innerHTML=html;
