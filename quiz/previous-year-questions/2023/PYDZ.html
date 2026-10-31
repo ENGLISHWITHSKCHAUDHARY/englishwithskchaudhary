@@ -24,11 +24,11 @@ nav a:hover{background:#e8f1ff}
 .quiz-top{display:flex;justify-content:space-between;align-items:center;color:#123c78;font-weight:700;font-size:13px;flex-wrap:wrap;gap:4px}
 .timer-badge{background:#e8f1ff;color:#1769aa;padding:2px 8px;border-radius:6px;font-size:12px}
 .question{font-size:16px;font-weight:700;color:#172033;margin:8px 0 10px}
-.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer;font-size:14px}
+.option{display:block;background:#f9fbff;border:1px solid #dfe8f5;border-radius:8px;padding:10px 12px;margin:8px 0;cursor:pointer;font-size:14px}
 .option:hover{background:#e8f1ff;border-color:#1769aa}
-.option input{margin-right:8px}
-.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
-.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
+.option input{margin-right:10px;transform:scale(1.2)}
+.buttons{display:flex;justify-content:space-between;gap:8px;margin-top:15px}
+.btn{display:inline-block;border:0;background:#1769aa;color:#fff;text-decoration:none;padding:8px 14px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px}
 .btn.secondary{background:#123c78}
 .btn.green{background:#0b8043}
 .btn:disabled{opacity:.45;cursor:not-allowed}
@@ -77,6 +77,7 @@ footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-si
 
 <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
 
+<!-- यहाँ प्रश्न और विकल्प लोड होंगे -->
 <div id="questionArea"></div>
 
 <div class="buttons">
@@ -254,7 +255,10 @@ renderQuestion();
 window.scrollTo(0,0);
 }
 
-renderQuestion();
+// पेज लोड होते ही क्विज़ शुरू करें
+window.onload = function() {
+    renderQuestion();
+};
 </script>
 </body>
 </html>
