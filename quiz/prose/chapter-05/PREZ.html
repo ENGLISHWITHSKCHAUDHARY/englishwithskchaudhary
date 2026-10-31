@@ -137,56 +137,31 @@ footer{background:#123c78;color:#fff;text-align:center;padding:16px 15px;font-si
 
 <script>
 const questions=[
-["Who wrote 'Ideas That Have Helped Mankind'?",
-["Bertrand Russell","Martin Luther King, Jr.","Dr. Zakir Hussain","Mahatma Gandhi"],0],
-["Bertrand Russell was awarded the Nobel Prize in Literature in the year:",
-["1950","1955","1960","1965"],0],
-["Bertrand Russell was a famous British philosopher and:",
-["Mathematician","Doctor","Scientist","Politician"],0],
-["The invention of which item was more important than the domestication of animals?",
-["Agriculture","Fire","Wheel","Printing press"],0],
-["What helped mankind by increasing knowledge and technique?",
-["Ideas","War","Hatred","Laziness"],0],
-["Birds die of hunger in large numbers during which season?",
-["Summer","Winter","Rainy","Spring"],1],
-["Human beings suffer from forethought of:",
-["Disaster","Success","Future happiness","Comfort"],0],
-["Which idea came long before agriculture in human history?",
-["Fire","Writing","Language","Domestication of animals"],0],
-["According to Bertrand Russell, the taming of domestic animals made human life:",
-["Harder","Pleasanter and safer","Dangerous","Violent"],1],
-["The last step in human development was the invention of:",
-["Printing","Writing","Agriculture","Fire"],1],
-["We are able to get a variety of enjoyment due to our:",
-["Physical strength","Intelligence","Wealth","Power"],1],
-["Bertrand Russell belonged to which country?",
-["USA","Britain","Germany","France"],1],
-["In human evolution, the ultimate aim of ideas was to increase:",
-["Population and happiness","Wars","Sickness","Poverty"],0],
-["Which invention helped in the spread of knowledge across the world?",
-["Printing Press","Fire","Wheel","Steam Engine"],0],
-["Animals do not suffer from:",
-["Physical pain","Forethought of anxiety","Hunger","Cold"],1],
-["Civilization has taught us to be more ______ towards one another.",
-["Friendly","Hostile","Jealous","Cruel"],0],
-["When we speak of the development of mankind, we refer to both numbers and:",
-["Quality of life","Weaponry","Physical size","Territory"],0],
-["The invention of agriculture took place in which era of human history?",
-["Prehistoric times","Modern era","Middle ages","19th century"],0],
-["Every human death by starvation is preceded by a long period of:",
-["Anxiety","Joy","Sleep","Activity"],0],
-["Has civilization taught us to be more friendly towards one another? Bertrand Russell says:",
-["Yes","No","Not sure","Never"],0],
-["Who dies of hunger in winter in large numbers without anticipating it beforehand?",
-["Birds","Humans","Robots","Trees"],0],
-["Bertrand Russell was also a noted commentator on:",
-["Pacifism and Social issues","Sports","Farming","Mining"],0],
-["The domestic animal that was first tamed by man was likely the:",
-["Dog","Horse","Cow","Cat"],0],
-["Human beings differ from animals mainly in their ability to:",
-["Think abstractly and learn","Fly","Run fast","Eat anything"],0],
-["'Ideas That Have Helped Mankind' is an essay that explores the growth of:",
-["Human civilization","Modern technology","Poetry","Space travel"],0]
+["Who wrote 'Ideas That Have Helped Mankind'?", ["Martin Luther King, Jr.","Bertrand Russell","Dr. Zakir Hussain","Mahatma Gandhi"], 1],
+["Bertrand Russell was awarded the Nobel Prize in Literature in the year:", ["1955","1950","1960","1965"], 1],
+["Bertrand Russell was a famous British philosopher and:", ["Doctor","Scientist","Mathematician","Politician"], 2],
+["The invention of which item was more important than the domestication of animals?", ["Fire","Wheel","Agriculture","Printing press"], 2],
+["What helped mankind by increasing knowledge and technique?", ["War","Ideas","Hatred","Laziness"], 1],
+["Birds die of hunger in large numbers during which season?", ["Summer","Rainy","Winter","Spring"], 2],
+["Human beings suffer from forethought of:", ["Success","Disaster","Future happiness","Comfort"], 1],
+["Which idea came long before agriculture in human history?", ["Writing","Language","Fire","Domestication of animals"], 2],
+["According to Bertrand Russell, the taming of domestic animals made human life:", ["Harder","Dangerous","Pleasanter and safer","Violent"], 2],
+["The last step in human development was the invention of:", ["Writing","Agriculture","Printing","Fire"], 2],
+["We are able to get a variety of enjoyment due to our:", ["Physical strength","Wealth","Intelligence","Power"], 2],
+["Bertrand Russell belonged to which country?", ["USA","Germany","Britain","France"], 2],
+["In human evolution, the ultimate aim of ideas was to increase:", ["Wars","Population and happiness","Sickness","Poverty"], 1],
+["Which invention helped in the spread of knowledge across the world?", ["Fire","Wheel","Printing Press","Steam Engine"], 2],
+["Animals do not suffer from:", ["Physical pain","Hunger","Cold","Forethought of anxiety"], 3],
+["Civilization has taught us to be more ______ towards one another.", ["Hostile","Jealous","Cruel","Friendly"], 3],
+["When we speak of the development of mankind, we refer to both numbers and:", ["Weaponry","Quality of life","Physical size","Territory"], 1],
+["The invention of agriculture took place in which era of human history?", ["Modern era","Prehistoric times","Middle ages","19th century"], 1],
+["Every human death by starvation is preceded by a long period of:", ["Joy","Sleep","Activity","Anxiety"], 3],
+["Has civilization taught us to be more friendly towards one another? Bertrand Russell says:", ["No","Yes","Not sure","Never"], 0],
+["Who dies of hunger in winter in large numbers without anticipating it beforehand?", ["Humans","Birds","Robots","Trees"], 1],
+["Bertrand Russell was also a noted commentator on:", ["Sports","Farming","Pacifism and Social issues","Mining"], 2],
+["The domestic animal that was first tamed by man was likely the:", ["Horse","Cow","Cat","Dog"], 3],
+["Human beings differ from animals mainly in their ability to:", ["Fly","Run fast","Eat anything","Think abstractly and learn"], 3],
+["'Ideas That Have Helped Mankind' is an essay that explores the growth of:", ["Modern technology","Human civilization","Poetry","Space travel"], 1]
 ];
 
 let current=0;
@@ -251,7 +226,7 @@ return `${s} sec`;
 
 function submitQuiz(){
 clearInterval(timerInterval);
-const unanswered=answers.filter(x=>x!==null).length;
+const unanswered=answers.filter(x=>x===null).length;
 if(unanswered && !confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
 startTimer();
 return;
