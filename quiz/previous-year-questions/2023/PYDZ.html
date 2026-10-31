@@ -70,7 +70,7 @@ footer{background:#123c78;color:#fff;text-align:center;padding:15px 10px;font-si
 
 <section class="quiz-card" id="quizBox">
 <div class="quiz-top">
-<span id="counter">Question 61 of 40</span>
+<span id="counter">Question 61 of 100</span>
 <span class="timer-badge">⏳ <span id="qTimer">0s</span></span>
 <span id="answered">Answered: 0</span>
 </div>
@@ -256,7 +256,9 @@ renderQuestion();
 window.scrollTo(0,0);
 }
 
-renderQuestion();
+window.onload = function() {
+    renderQuestion();
+};
 </script>
 </body>
 </html>
